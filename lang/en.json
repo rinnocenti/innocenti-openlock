@@ -1,0 +1,22 @@
+{
+    "OpenLock.Settings": {
+        "ThievesTool": "Thieves’ Tools",
+        "ThievesToolHint": "Nome do item que representa a ferramenta de ladino"
+    },
+
+    "OpenLock.Btn": {
+        "Strangth": "Força",
+        "ThievesTools": "Ferramenta de Ladino",
+        "DontTouch": "Não Tocar"
+    },
+
+    "OpenLock.MsgDialog": {
+        "TrapAlert": "Atenção!! Armadilha detectada!",
+        "Title": "Abrir Baú",
+        "Content": "O Baú esta trancado, como você deseja abri-lo?"
+    },
+    "OpenLock.MsgChat": {
+        "Used": "Usou: ",
+        "Loot": "Pilhado: "
+    }
+}

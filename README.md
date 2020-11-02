@@ -23,9 +23,11 @@ And the Modules:
 the module basically works with the loot sheet with the character's target and macro activation.
 
 1) Create an NPC using the loot sheet.
+<img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme01.jpg" width="70%" height="70%">
 
 2) Create an item of type **Feat** and rename for "Lock" (or another word configured in the module settings).If you have a trap, set the damage and the actions in this item as well. If you select an **Action Type** it will recognize this trapped lock, if empty it will consider that there are no traps.
  You can also define a key for this lock in the **Requirements** field by entering the name of the item that will serve as the key for it. If the player has an item with the same name, he can open the chest without problems and without activating traps.
+ <img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme02.jpg" width="70%" height="70%">
 
 3) In **"Activation Conditions"** of your Lock, you will configure the difficulty classes to find and defuse traps as follows:
 There are 4 CDs to be configured* according to the following template: name_space_ND_point and comma (name #; see picture)

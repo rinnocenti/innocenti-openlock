@@ -1,6 +1,6 @@
 
 ![GitHub All Releases](https://img.shields.io/github/downloads/rinnocenti/innocenti-openlock/total)
-![GitHub Releases](https://img.shields.io/github/downloads/rinnocenti/innocenti-openlock/0.1.0/total)
+![GitHub Releases](https://img.shields.io/github/downloads/rinnocenti/innocenti-openlock/v0.1.0/total)
 # Innocenti OpenLock
 A simple module to use loot actors and it will be possible to configure traps and locks.
 It was created for testing and learning purposes with foundry vtt
@@ -27,7 +27,7 @@ the module basically works with the loot sheet with the character's target and m
 
 2) Create an item of type **Feat** and rename for "Lock" (or another word configured in the module settings).If you have a trap, set the damage and the actions in this item as well. If you select an **Action Type** it will recognize this trapped lock, if empty it will consider that there are no traps.
  You can also define a key for this lock in the **Requirements** field by entering the name of the item that will serve as the key for it. If the player has an item with the same name, he can open the chest without problems and without activating traps.
- <img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme02.jpg" width="70%" height="70%">
+ <img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme02.png" width="70%" height="70%">
 
 3) In **"Activation Conditions"** of your Lock, you will configure the difficulty classes to find and defuse traps as follows:
 There are 4 CDs to be configured* according to the following template: name_space_ND_point and comma (name #; see picture)
@@ -47,8 +47,8 @@ macro2 - OPEN CHEST
 `let openchest = InnocentiOpenLock.Chest();`
 
 6)The player must aim at the token of the chest and choose one of the macro actions.
-
-## Find Trap
+<img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme03.png" width="70%" height="70%">
+## Macro 1: Find Trap
 Find Trap will test the passive perception of the player against the DC value set in "prc", to identify if there is a trap.
 
 If the passive perception does not reach the DC, the player will be asked for a perception check.
@@ -57,7 +57,7 @@ Then a dialog with the option to open the chest (see Open Chest), if you succeed
 
 A chat card will be created with the results, including the indication if player has the key (if the lock has one, the player has the correct one and passed the perception test for looking for).
 
-## Open Chest
+## Macro 2: Open Chest
 * Makes an attempt to open the chest.
 * If the player has permission for that chest or has the key to it, the chest will be opened immediately. Otherwise, a dialog will be displayed for ways to open the chest, using stranght check or using thieves'tools(player need to have in your inventary).
 * If the player closes this dialog and the lock has a trap, it will be fired.

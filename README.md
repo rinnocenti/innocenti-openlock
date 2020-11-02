@@ -1,6 +1,6 @@
 
 ![GitHub All Releases](https://img.shields.io/github/downloads/rinnocenti/innocenti-openlock/total)
-![GitHub Releases](https://img.shields.io/github/downloads/rinnocenti/innocenti-openlock/0.2.1/total)
+![GitHub Releases](https://img.shields.io/github/downloads/rinnocenti/innocenti-openlock/0.1.0/total)
 # Innocenti OpenLock
 A simple module to use loot actors and it will be possible to configure traps and locks.
 It was created for testing and learning purposes with foundry vtt
@@ -48,8 +48,11 @@ macro2 - OPEN CHEST
 
 ## Find Trap
 Find Trap will test the passive perception of the player against the DC value set in "prc", to identify if there is a trap.
+
 If the passive perception does not reach the DC, the player will be asked for a perception check.
+
 Then a dialog with the option to open the chest (see Open Chest), if you succeed in any of the perception tests the option to "disarm the trap" will appear (player need to have the thieves'tools in your inventary).
+
 A chat card will be created with the results, including the indication if player has the key (if the lock has one, the player has the correct one and passed the perception test for looking for).
 
 ## Open Chest

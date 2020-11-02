@@ -1,29 +1,57 @@
 {
     "OpenLock.Settings": {
-        "ThievesTool": "Thieves’ Tools",
-        "ThievesToolTitle": "Thieves’ Tools: ",
+        "ThievesTool": "Ferramenta de Ladrão",
+        "ThievesToolTitle": "Ferramenta de Ladrão: ",
         "ThievesToolHint": "Nome do item que representa a ferramenta de ladino",
-        "LockFeat": "Lock",
-        "LockFeatTitle": "Lock Feat: ",
+        "LockFeat": "Cadeado",
+        "LockFeatTitle": "Habilidade de Cadeado: ",
         "LockFeatHint": "Nome do Recurso que será considerado a tranca simples",
-        "TrapFeat": "Trap",
-        "TrapFeatTitle": "Lock Trap Feat: ",
-        "TrapFeatHint": "Nome do Recurso que será considerado a tranca com armadilha"
+        "TrapFeat": "Armadilha",
+        "TrapFeatTitle": "Habilidade de Cadeado com Armadilha: ",
+        "TrapFeatHint": "Nome do Recurso que será considerado a tranca com armadilha",
+        "defaultStrenght": "ND Força padrão",
+        "defaultStrenghtHint": "Caso não haja um valor definido na tranca, este valor será usado como Nivel de Desafio (padrão: 12)",
+        "defaultDexterity": "ND Destreza padrão",
+        "defaultDexterityHint": "Caso não haja um valor definido na tranca, este valor será usado como Nivel de Desafio (padrão: 10)",
+        "defaultPerception": "ND Percepção Padrão",
+        "defaultPerceptionHint": "Caso não haja um valor definido na tranca, este valor será usado como Nivel de Desafio (padrão: 10)",
+        "removeLock": "Remover tranca",
+        "removeLockHint": "Remover a tranca após abrir?"
     },
 
     "OpenLock.Btn": {
         "Strangth": "Força",
         "ThievesTools": "Ferramenta de Ladino",
-        "DontTouch": "Não Tocar"
+        "DontTouch": "Não Tocar",
+        "OpenChest": "Abrir",
+        "DisarmTrap": "Desarmar Armadilha"
     },
 
     "OpenLock.MsgDialog": {
         "TrapAlert": "Atenção!! Armadilha detectada!",
+        "HaveKey": "Você tem a chave apara este baú",
+        "HasLock": "Este baú está trancado",
         "Title": "Abrir Baú",
-        "Content": "O Baú esta trancado, como você deseja abri-lo?"
+        "TitleCheck": "Verificar Armadilhas",
+        "Content": "O Baú esta trancado, como você deseja abri-lo?",
+        "ContentCheck": "Você encontrou um Báu o que deseja fazer?"
     },
     "OpenLock.MsgChat": {
         "Used": "Usou: ",
-        "Loot": "Pilhado: "
+        "Loot": "Abriu: ",
+        "SearchTitle": "Procurar Armadilhas",
+        "TitleDisarm": "Desarmar Armadilhas",
+        "TrapDisarm": "Armadilha Desarmada: ",
+        "OpenTitle": "Abrir Objeto",
+        "NotLock": "Este Item não possui um despositvo de trava",
+        "hasLock": "Trancado: ",
+        "Yes": "Sim",
+        "No": "Não",
+        "Dontfound": "Não Encontrei",
+        "haveKey": "Possuo a chave: ",
+        "haveTrap": "Armadilhas: ",
+        "StranghtOpen": "Quebrou a trava:",
+        "TrapOnOpen": "Ativou Armadilha!",
+        "ToolOpen": "Abriu a trava: "
     }
 }

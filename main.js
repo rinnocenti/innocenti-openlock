@@ -3,6 +3,7 @@ import { Door } from './scripts/opendoor.js';
 
 Hooks.once("init", async () => {
     game.socket.on(`module.innocenti-openlock`, async (data) => {
+        console.log(data);
         if (game.user.isGM) {
             let actor = game.actors.entities.find(a => a.id === data.actorTargetid);
             //let item = actor.items.find(a => a.id === data.item_id);
@@ -16,6 +17,10 @@ Hooks.once("init", async () => {
                 let permissions = new PermissionControl(actor);
                 await permissions._updateObject(event, newpermissions);
             }
+            if (data.trap === true && data.disarm === false) {
+                data.disarm = true;
+                await new MidiQOL.TrapWorkflow(actor, tokenitem, [token], targetToken.center);
+            }
             if (data.disarm === true) {
                 data.trap = false;
                 console.log(tokenitem);
@@ -28,7 +33,7 @@ Hooks.once("init", async () => {
                 targetToken.actor.updateEmbeddedEntity("OwnedItem", updates);
                 await console.log("DESARMOU O LOCK");
             }
-            if (data.trap === true && data.disarm === false) await new MidiQOL.TrapWorkflow(actor, tokenitem, [token], targetToken.center);
+            
             if (data.remove === true || game.settings.get("innocenti-openlock", "removeLock") === true) {
                 await tokenitem.delete();
                 await console.log("REMOVER O LOCK", tokenitem);

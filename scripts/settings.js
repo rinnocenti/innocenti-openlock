@@ -56,4 +56,12 @@ Hooks.once("init", () => {
         default: false,
         type: Boolean
     });
+    game.settings.register("innocenti-openlock", "resetTrap", {
+        name: game.i18n.localize('OpenLock.Settings.resetTrap'),
+        hint: game.i18n.localize('OpenLock.Settings.resetTrapHint'),
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean
+    });
 });

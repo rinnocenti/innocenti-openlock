@@ -1,43 +1,57 @@
 {
     "OpenLock.Settings": {
-        "ThievesTool": "Thieves’ Tools",
-        "ThievesToolTitle": "Thieves’ Tools: ",
-        "ThievesToolHint": "Nome do item que representa a ferramenta de ladino",
+        "ThievesTool": "Thievesâ€™ Tools",
+        "ThievesToolTitle": "Thievesâ€™ Tools: ",
+        "ThievesToolHint": "Name of the item representing the Thievesâ€™ Tools",
         "LockFeat": "Lock",
         "LockFeatTitle": "Lock Feat: ",
-        "LockFeatHint": "Nome do Recurso que será considerado a tranca simples",
+        "LockFeatHint": "Name of the feat that will be considered the simple lock",
         "TrapFeat": "Trap",
         "TrapFeatTitle": "Lock Trap Feat: ",
-        "TrapFeatHint": "Nome do Recurso que será considerado a tranca com armadilha",
-        "defaultStrenght": "ND Força padrão",
-        "defaultStrenghtHint": "Caso não haja um valor definido na tranca, este valor será usado como Nivel de Desafio (padrão: 12)",
-        "defaultDexterity": "ND Destreza padrão",
-        "defaultDexterityHint": "Caso não haja um valor definido na tranca, este valor será usado como Nivel de Desafio (padrão: 10)",
-        "defaultPerception": "ND Percepção Passiva padrão",
-        "defaultPerceptionHint": "Caso não haja um valor definido na tranca, este valor será usado como Nivel de Desafio (padrão: 10)",
-        "removeLock": "Remover tranca",
-        "removeLockHint":  "Remover a tranca após abrir?"
+        "TrapFeatHint": "Name of the feat that will be considered the trap lock",
+        "defaultStrenght": "Default CD Stranght",
+        "defaultStrenghtHint": "If there is no value set in the lock, this value is used as Challenge Level (default: 12)",
+        "defaultDexterity": "Default CD Dexterity",
+        "defaultDexterityHint": "If there is no value set in the lock, this value is used as Challenge Level (default: 10)",
+        "defaultPerception": "Default CD Perception",
+        "defaultPerceptionHint": "If there is no value set in the lock, this value is used as Challenge Level (default: 10)",
+        "removeLock": "Remove lock",
+        "removeLockHint": "Remove the lock after opening?"
     },
 
     "OpenLock.Btn": {
-        "Strangth": "Força",
-        "ThievesTools": "Ferramenta de Ladino",
-        "DontTouch": "Não Tocar",
-        "OpenChest": "Abrir",
-        "DisarmTrap":  "Desarmar Armadilha"
+        "Strangth": "Strangth",
+        "ThievesTools": "Thievesâ€™ Tools",
+        "DontTouch": "Don't touch this",
+        "OpenChest": "Open",
+        "DisarmTrap": "Unset Trap"
     },
 
     "OpenLock.MsgDialog": {
-        "TrapAlert": "Atenção!! Armadilha detectada!",
-        "HaveKey": "Você tem a chave apara este baú",
-        "HasLock": "Este baú está trancado",
-        "Title": "Abrir Baú",
-        "TitleCheck": "Verificar Armadilhas",
-        "Content": "O Baú esta trancado, como você deseja abri-lo?",
-        "ContentCheck": "Você encontrou um Báu o que deseja fazer?"
+        "TrapAlert": "Warning!! Trap detected!",
+        "HaveKey": "You have the key to this chest",
+        "HasLock": "This chest is locked",
+        "Title": "Open Chest",
+        "TitleCheck": "Check Traps",
+        "Content": "The chest is locked, how do you want to open it?",
+        "ContentCheck": "Did you find a chest what do you want to do?"
     },
     "OpenLock.MsgChat": {
-        "Used": "Usou: ",
-        "Loot": "Abriu: "
+        "Used": "Used: ",
+        "Loot": "Opened: ",
+        "SearchTitle": "Find Traps",
+        "TitleDisarm": "Disarm Traps",
+        "TrapDisarm": "Disarmed Trap: ",
+        "OpenTitle": "Open Chest",
+        "NotLock": "This Item does not have a locking device",
+        "hasLock": "Locked: ",
+        "Yes": "Yes",
+        "No": "No",
+        "Dontfound": "Not found",
+        "haveKey": "Have the Key: ",
+        "haveTrap": "Traps: ",
+        "StranghtOpen": "Broke the lock:",
+        "TrapOnOpen": "Enabled Trap!",
+        "ToolOpen": "Open the lock: "
     }
 }

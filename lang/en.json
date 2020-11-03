@@ -3,20 +3,8 @@
         "ThievesTool": "Thieves’ Tools",
         "ThievesToolTitle": "Thieves’ Tools: ",
         "ThievesToolHint": "Name of the item representing the Thieves’ Tools",
-        "LockFeat": "Lock",
-        "LockFeatTitle": "Lock Feat: ",
-        "LockFeatHint": "Name of the feat that will be considered the simple lock",
-        "TrapFeat": "Trap",
-        "TrapFeatTitle": "Lock Trap Feat: ",
-        "TrapFeatHint": "Name of the feat that will be considered the trap lock",
-        "defaultStrenght": "Default CD Stranght",
-        "defaultStrenghtHint": "If there is no value set in the lock, this value is used as Challenge Level (default: 12)",
-        "defaultDexterity": "Default CD Dexterity",
-        "defaultDexterityHint": "If there is no value set in the lock, this value is used as Challenge Level (default: 10)",
-        "defaultPerception": "Default CD Perception",
-        "defaultPerceptionHint": "If there is no value set in the lock, this value is used as Challenge Level (default: 10)",
         "removeLock": "Remove lock",
-        "removeLockHint": "Remove the lock after opening?"
+        "removeLockHint": "if enabled, whenever the chest is opened the lock item will be removed from the chest items."
     },
 
     "OpenLock.Btn": {
@@ -52,6 +40,18 @@
         "haveTrap": "Traps: ",
         "StranghtOpen": "Broke the lock:",
         "TrapOnOpen": "Enabled Trap!",
-        "ToolOpen": "Open the lock: "
+        "ToolOpen": "Open the lock: ",
+        "BreakTools": "With the misuse of the tool it ended up breaking"
+    },
+    "OpenLock.ItemLabel": {
+        "disarmTrapDC": "Disarm Trap DC",
+        "findTrapDC": "Find Trap DC",
+        "forceLockDC": "Force Lock DC",
+        "openLockDC": "Open Lock DC",
+        "toolsBreak": "Threshold of Tools Break",
+        "resetTrap": "Reset Trap",
+        "keylock": "Item Key Name",
+        "SheetEnabled": "Enable Lock/Trap",
+        "OpenTitle": "Open Chests"
     }
 }

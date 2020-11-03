@@ -3,18 +3,6 @@
         "ThievesTool": "Ferramenta de Ladrão",
         "ThievesToolTitle": "Ferramenta de Ladrão: ",
         "ThievesToolHint": "Nome do item que representa a ferramenta de ladino",
-        "LockFeat": "Cadeado",
-        "LockFeatTitle": "Habilidade de Cadeado: ",
-        "LockFeatHint": "Nome do Recurso que será considerado a tranca simples",
-        "TrapFeat": "Armadilha",
-        "TrapFeatTitle": "Habilidade de Cadeado com Armadilha: ",
-        "TrapFeatHint": "Nome do Recurso que será considerado a tranca com armadilha",
-        "defaultStrenght": "ND Força padrão",
-        "defaultStrenghtHint": "Caso não haja um valor definido na tranca, este valor será usado como Nivel de Desafio (padrão: 12)",
-        "defaultDexterity": "ND Destreza padrão",
-        "defaultDexterityHint": "Caso não haja um valor definido na tranca, este valor será usado como Nivel de Desafio (padrão: 10)",
-        "defaultPerception": "ND Percepção Padrão",
-        "defaultPerceptionHint": "Caso não haja um valor definido na tranca, este valor será usado como Nivel de Desafio (padrão: 10)",
         "removeLock": "Remover tranca",
         "removeLockHint": "Remover a tranca após abrir?"
     },
@@ -52,6 +40,18 @@
         "haveTrap": "Armadilhas: ",
         "StranghtOpen": "Quebrou a trava:",
         "TrapOnOpen": "Ativou Armadilha!",
-        "ToolOpen": "Abriu a trava: "
+        "ToolOpen": "Abriu a trava: ",
+        "BreakTools": "Com o mau uso da ferramenta ela acabou se quebrando"
+    },
+    "OpenLock.ItemLabel": {
+        "disarmTrapDC": "Disarmar Armadilhas CD",
+        "findTrapDC": "Encontrar Armadilhas CD",
+        "forceLockDC": "Forçar Fechadura CD",
+        "openLockDC": "Abrir Fechadura CD",
+        "toolsBreak": "Limite para Quebrar a Ferramenta",
+        "resetTrap": "Reiniciar Armadilha",
+        "keylock": "Nome do Item Chave",
+        "SheetEnabled": "Habilitar Tranca/Armadilha",
+        "OpenTitle": "Abrir Baús"
     }
 }

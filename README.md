@@ -8,7 +8,12 @@ It was created for testing and learning purposes with foundry vtt
 You can install this module by using the following manifest URL : https://raw.githubusercontent.com/rinnocenti/innocenti-openlock/main/module.json
 
 As GM go to the Manage Modules options menu in your World Settings tab then enable the Innocenti-OpenLock.
-
+<img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme01.png" width="70%" height="70%">
+### Thieves' Tool 
+Name of the item used as thieves' tools.
+By default, it always accepts `Thieves’ Tools`, and/or the name for its translation in the language file and/or the one indicated in these settings.
+### Remove lock 
+if enabled, whenever the chest is opened the lock item will be removed from the chest items.
 # Dependencies
 This module was created to work in a world with other support modules so you don't have to increase your workload.
 The module is system dependent:
@@ -20,33 +25,42 @@ And the Modules:
 * Loot Sheet npc5e (by ChalkOne) for loot sheet: https://raw.githubusercontent.com/jopeek/fvtt-loot-sheet-npc-5e/master/module.json
 
 # How to Use
-the module basically works with the loot sheet with the character's target and macro activation.
+the module basically works looking for a feat that has the open lock option enabled in loot sheet with the character's target and macro activation.
 
 1) Create an NPC using the loot sheet.
-<img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme01.jpg" width="70%" height="70%">
+<img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme04.png" width="70%" height="70%">
 
-2) Create an item of type **Feat** and rename for "Lock" (or another word configured in the module settings).If you have a trap, set the damage and the actions in this item as well. If you select an **Action Type** it will recognize this trapped lock, if empty it will consider that there are no traps.
- You can also define a key for this lock in the **Requirements** field by entering the name of the item that will serve as the key for it. If the player has an item with the same name, he can open the chest without problems and without activating traps.
- <img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme02.png" width="70%" height="70%">
+2) Create an item of type **Feat** and in the tab **Open Lock** for settings.
+<img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme02.png" width="70%" height="70%">
+If you have a lock trap, set the damage and the actions in this item in detail tab. If you select an **Action Type** it will recognize this trapped lock, if empty it will consider that there are no traps.
+### Enable Lock/Trap 
+feat to function as locks need to activate the module on the item.
+### Item Key Name 
+if you want this lock to have a key, fill with the **exact** name of the item you want to use as a key for that lock.
+### Disarm Trap DC 
+the value for the difficulty class to disarm the trap on it, the player will make a dexterity Tool check against this value, it will only be tested if the player has the item thieves' tools in his inventory.
+### Find Trap DC 
+the value for the difficulty class to find the trap in it, the player will make a perception test against this value, will be tested first against the passive perception, if it is not successful a test of the perception skill will be requested.
+### Force Lock DC 
+the value for the difficulty class to force open the lock, the player will make a strength test against this value to open the lock
+### Open Lock DC 
+the value for the difficulty class to open the lock, it is necessary to have one thieves'tool in your inventory. the player will make a Tool Dexterity test against this value to open the lock.
+### Threshold of Tools Break 
+If the value of the thieves' tools use test is below the threshold indicated, the tool will break and will be removed from the character's inventory.
+### Reset Trap
+The trap (if any) will always be active again even if activated once before, but if disarmed with thieves' tools it does not activate again.
 
-3) In **"Activation Conditions"** of your Lock, you will configure the difficulty classes to find and defuse traps as follows:
-There are 4 CDs to be configured* according to the following template: name_space_ND_point and comma (name #; see picture)
-accepted parameters are:
-prc ##; For the perception check to find traps.
-str ##; For strength check to break the lock
-dex ##; For dexterity check (with tool) to open the lock
-disarm ##; for dexterity check (with tool) to disarm the trap
-\* *It is configured like this until I create another simpler way to do it*
+3) Place the "Lock" object on the loot sheet.
 
-4) Place the "Lock" object on the loot sheet.
-
-5) Create two macros with permission for all your players with the following content:
+4) Create two macros with permission for all your players with the following content:
 macro1 - FIND TRAP 
 `let checkchest = InnocentiOpenLock.CheckTraps();`
 macro2 - OPEN CHEST
 `let openchest = InnocentiOpenLock.Chest();`
 
-6)The player must aim at the token of the chest and choose one of the macro actions.
+there are examples in the module pack
+
+5)The player must aim at the token of the chest and choose one of the macro actions.
 <img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme03.png" width="70%" height="70%">
 ## Macro 1: Find Trap
 Find Trap will test the passive perception of the player against the DC value set in "prc", to identify if there is a trap.
@@ -66,14 +80,10 @@ A chat card will be created with the results, including the indication if player
 * A trap is considered disarmed when the "Action Type" field of the lock is empty, otherwise it is considered an active trap.
 
 # Future Features
-* Improve DC settings on items
 * Expand to Close doors.
-* Major check failures (<5) can break the items involved or set a trap.
 
 # Support
-If you like this module and would like to help or found a bug or request new features call me on discord or create a issue here.
+If you like this module and would like to help or found a bug or request new features call me on discord @Innocenti#1455 or create a issue here.
 
 # License
 This Foundry VTT module, writen by Innocenti, is licensed under a Creative Commons Attribution 4.0 International License.
-
-This work is licensed under Foundry Virtual Tabletop EULA - Limited License Agreement for module development v 0.1.6.

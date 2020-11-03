@@ -1,0 +1,5 @@
+.dnd5e.sheet.item .open-lock input[type="text"], .dnd5e.sheet.item .open-lock input[type="number"], .dnd5e.sheet.item .open-lock select {
+    height: 24px;
+    border: 1px solid #7a7971;
+    background: rgba(0, 0, 0, 0.05);
+}

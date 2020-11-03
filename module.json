@@ -3,13 +3,15 @@
     "title": "Innocenti Open Lock",
     "description": "<p>Modules for opening locks using keys, force or picklock</p>",
     "author": "Renato innocenti",
-    "version": "0.1.0",
+    "version": "0.1.2",
     "minimumCoreVersion": "0.7.0",
     "compatibleCoreVersion": "0.7.5",
     "systems": [ "dnd5e" ],
     "esmodules": [ "main.js", "scripts/settings.js" ],
     "scripts": [],
-    "styles": [],
+    "styles": [
+        "openlock.css"
+    ],
     "dependencies": [
         {
             "name": "midi-qol",

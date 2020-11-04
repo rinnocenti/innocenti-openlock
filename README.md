@@ -61,8 +61,10 @@ The trap (if any) will always be active again even if activated once before, but
 3) Place the "Lock" object on the loot sheet.
 
 4) Create two macros with permission for all your players with the following content:
+
 macro1 - FIND TRAP 
 `let checkchest = InnocentiOpenLock.CheckTraps();`
+
 macro2 - OPEN CHEST
 `let openchest = InnocentiOpenLock.Chest();`
 
@@ -70,6 +72,7 @@ there are examples in the module pack
 
 5)The player must aim at the token of the chest and choose one of the macro actions.
 <img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme03.png" width="70%" height="70%">
+
 ## Macro 1: Find Trap
 Find Trap will test the passive perception of the player against the DC value set in "prc", to identify if there is a trap.
 

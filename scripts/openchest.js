@@ -4,6 +4,8 @@ export let OpenLock = async function () {
     if (CheckTokentarget() === false) return
     const actor = canvas.tokens.controlled[0].actor;
     for (let targetToken of game.user.targets) {
+        // Checagem de distancia:
+        if (CheckDistance(targetToken, game.settings.get("innocenti-openlock", "interactDistance")) === false) return;
         if (targetToken.actor.getFlag('lootsheetnpc5e', 'lootsheettype') === 'Loot') {
             if (CheckPermission(targetToken) === true) return setTimeout(function () { targetToken._onClickLeft2() }, 500);
             // Checagem se o loot possui uma tranca a ser aberta.
@@ -106,7 +108,7 @@ export let OpenLock = async function () {
             let d = new Dialog(dialogBase);
             await d.render(true);
         } else {
-            return ui.notifications.info(`${targetToken.nam} não é um Loot Valido`);
+            return ui.notifications.info(`${targetToken.name} ${game.i18n.localize('OpenLock.Errors.novalidLoot')}`);
         }
     }
 }
@@ -115,6 +117,7 @@ export let CheckForTraps = async function () {
     if (CheckTokentarget() === false) return
     const actor = canvas.tokens.controlled[0].actor;
     for (let targetToken of game.user.targets) {
+        if (CheckDistance(targetToken, game.settings.get("innocenti-openlock", "perceptionDistance")) === false) return;
         if (targetToken.actor.getFlag('lootsheetnpc5e', 'lootsheettype') === 'Loot') {
             if (CheckPermission(targetToken) === true) return setTimeout(function () { targetToken._onClickLeft2() }, 500);
             // Checagem se o loot possui uma tranca a ser aberta.
@@ -190,7 +193,7 @@ export let CheckForTraps = async function () {
             let d = new Dialog(dialogBase);
             await d.render(true);
         } else {
-            return ui.notifications.info(`${targetToken.nam} não é um Loot Valido`);
+            return ui.notifications.info(`${targetToken.name} ${game.i18n.localize('OpenLock.Errors.novalidLoot')}`);
         }
     }
 }
@@ -209,11 +212,11 @@ async function CheckForTrapsChat(foundTrap, foundKey) {
 }
 let CheckTokentarget = () => {
     if (canvas.tokens.controlled.length === 0) {
-        ui.notifications.error("Select a token");
+        ui.notifications.error(game.i18n.localize('OpenLock.Errors.noSelect'));
         return false;
     }
     if (!game.user.targets.values().next().value) {
-        ui.notifications.warn("No token is targeted");
+        ui.notifications.warn(game.i18n.localize('OpenLock.Errors.noToken'));
         return false;
     }
     return true;
@@ -277,6 +280,17 @@ async function OpenChest(targetToken, lockitem, chestKey = false, options, msgs)
     if (options.open === true)
         await setTimeout(function () { targetToken._onClickLeft2() }, 500);
 }
+
+let CheckDistance = (targetToken, minDistance = 1) => {
+    let gridDistance = (minDistance < 1) ? 1 : minDistance;
+    // minimo de distancia 1
+    let distance = Math.ceil(canvas.grid.measureDistance(canvas.tokens.controlled[0], targetToken, { gridSpaces: true }));
+    let nGrids = Math.floor(distance / canvas.scene.data.gridDistance);
+    if (nGrids <= gridDistance) return true;
+    ui.notifications.warn(game.i18n.format("OpenLock.Errors.invalidDistance", { dist: gridDistance }));
+    return false;
+}
+
 export class OpenLooks {
 
     constructor(flags) {

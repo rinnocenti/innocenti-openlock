@@ -4,7 +4,11 @@
         "ThievesToolTitle": "Ferramenta de Ladrão: ",
         "ThievesToolHint": "Nome do item que representa a ferramenta de ladino",
         "removeLock": "Remover tranca",
-        "removeLockHint": "Remover a tranca após abrir?"
+        "removeLockHint": "Remover a tranca após abrir?",
+        "perceptionDistance": "Distância máxima para percepção (em grade)",
+        "perceptionDistanceHint": "A distância máxima para o jogador poder testar percepção em unidades de grade do mapa",
+        "interactDistance": "Distância máxima para interagir (em grade)",
+        "interactDistanceHint": "A distância mimáxima para os jogadores interagirem com a trava em unidades de grade do mapa"
     },
 
     "OpenLock.Btn": {
@@ -53,5 +57,11 @@
         "keylock": "Nome do Item Chave",
         "SheetEnabled": "Habilitar Tranca/Armadilha",
         "OpenTitle": "Abrir Baús"
+    },
+    "OpenLock.Errors": {
+        "noSelect": "Selecione um Token",
+        "noToken": "Nenhum token esta marcado como alvo",
+        "novalidLoot": " não é um baú válido",
+        "invalidDistance": "A distancia minima para esta interação é: {dist} quadros"
     }
 }

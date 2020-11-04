@@ -4,7 +4,11 @@
         "ThievesToolTitle": "Thieves’ Tools: ",
         "ThievesToolHint": "Name of the item representing the Thieves’ Tools",
         "removeLock": "Remove lock",
-        "removeLockHint": "if enabled, whenever the chest is opened the lock item will be removed from the chest items."
+        "removeLockHint": "if enabled, whenever the chest is opened the lock item will be removed from the chest items.",
+        "perceptionDistance": "Maximum distance for perception (in grids)",
+        "perceptionDistanceHint": "The maximum grid distance for the perception action to be performed",
+        "interactDistance": "Maximum distance to interact (in grids)",
+        "interactDistanceHint": "the maximum distance for players to interact with the lock in number of grids"
     },
 
     "OpenLock.Btn": {
@@ -53,5 +57,11 @@
         "keylock": "Item Key Name",
         "SheetEnabled": "Enable Lock/Trap",
         "OpenTitle": "Open Chests"
+    },
+    "OpenLock.Errors": {
+        "noSelect": "Select a token",
+        "noToken": "No token is targeted",
+        "novalidLoot": " not a valid Loot",
+        "invalidDistance": "The maximum distance for this interaction is: {dist} grids"
     }
 }

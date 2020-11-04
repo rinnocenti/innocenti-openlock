@@ -11,7 +11,7 @@ As GM go to the Manage Modules options menu in your World Settings tab then enab
 <img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme01.png" width="70%" height="70%">
 ### Thieves' Tool 
 Name of the item used as thieves' tools.
-By default, it always accepts `Thieves’ Tools`, and/or the name for its translation in the language file and/or the one indicated in these settings.
+By default, it always accepts `Thievesâ€™ Tools`, and/or the name for its translation in the language file and/or the one indicated in these settings.
 ### Remove lock 
 if enabled, whenever the chest is opened the lock item will be removed from the chest items.
 # Dependencies
@@ -33,20 +33,28 @@ the module basically works looking for a feat that has the open lock option enab
 2) Create an item of type **Feat** and in the tab **Open Lock** for settings.
 <img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme05.png" width="70%" height="70%">
 If you have a lock trap, set the damage and the actions in this item in detail tab. If you select an **Action Type** it will recognize this trapped lock, if empty it will consider that there are no traps.
+
 ### Enable Lock/Trap 
 feat to function as locks need to activate the module on the item.
+
 ### Item Key Name 
 if you want this lock to have a key, fill with the **exact** name of the item you want to use as a key for that lock.
+
 ### Disarm Trap DC 
 the value for the difficulty class to disarm the trap on it, the player will make a dexterity Tool check against this value, it will only be tested if the player has the item thieves' tools in his inventory.
+
 ### Find Trap DC 
 the value for the difficulty class to find the trap in it, the player will make a perception test against this value, will be tested first against the passive perception, if it is not successful a test of the perception skill will be requested.
+
 ### Force Lock DC 
-the value for the difficulty class to force open the lock, the player will make a strength test against this value to open the lock
+the value for the difficulty class to force open the lock, the player will make a strength test against this value to open the lock.
+
 ### Open Lock DC 
 the value for the difficulty class to open the lock, it is necessary to have one thieves'tool in your inventory. the player will make a Tool Dexterity test against this value to open the lock.
+
 ### Threshold of Tools Break 
 If the value of the thieves' tools use test is below the threshold indicated, the tool will break and will be removed from the character's inventory.
+
 ### Reset Trap
 The trap (if any) will always be active again even if activated once before, but if disarmed with thieves' tools it does not activate again.
 

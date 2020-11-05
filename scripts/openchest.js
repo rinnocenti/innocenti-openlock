@@ -27,7 +27,7 @@ export let OpenLock = async function () {
                 let options = { open: true, trap: false, disarm: false, remove: false }
                 let msg = {
                     SearchTitile: game.i18n.localize('OpenLock.MsgChat.OpenTitle'),
-                    content: `<hr /><h4>${game.i18n.localize('OpenLock.MsgChat.Used')} <img src=\"${hasKey.data.img}\" width=\"30px\" /> ${hasKey.name}</h4>`
+                    content: `<hr /><h4>${game.i18n.localize('OpenLock.MsgChat.Used')} <img src=\"${hasKey.img}\" width=\"30px\" /> ${hasKey.name}</h4>`
                 }
                 await OpenChest(targetToken, hasLock, hasKey, options, msg);
                 return;
@@ -132,6 +132,7 @@ export let CheckForTraps = async function () {
                 return;
             }
             let hasKey = await HasKey(hasLock, actor);
+            console.log(hasKey);
             let foundTrap = false;
             let foundKey = false;
             let haveTrap = (hasLock.data.data.actionType !== '') ? true : false;
@@ -224,12 +225,14 @@ let CheckTokentarget = () => {
 let HasTool = async (actor) => {
     return await actor.items.find(a => a.name === `Thieves’ Tools` || a.name === game.i18n.localize('OpenLock.Msg.ThievesTools') || a.name === game.settings.get("innocenti-openlock", "nameThievesTool"));
 }
-let HasKey = async (lock, actor) => {
+let HasKey = (lock, actor) => {
     let keylock = lock.getFlag('innocenti-openlock', "keylock");
-    return (keylock !== '') ? await actor.items.find(item => item.name === `${keylock}`) : false;
+    return (keylock !== '') ? actor.items.find(item => item.name === `${keylock}`) : false;
 }
 let HasLock = async (actor) => {
     let lock = await actor.items.find(a => a.data.flags['innocenti-openlock']);
+    console.log(lock);
+    if (!lock) return false;
     return (lock.getFlag('innocenti-openlock', "enabled") === true) ? lock : false;
 }
 let CheckPermission = async (targetToken) => {
@@ -255,8 +258,7 @@ function PrepareActivations(itemActivation) {
 async function OpenChest(targetToken, lockitem, chestKey = false, options, msgs) {
     let imgToken = targetToken.data.img || targetToken.actor.img;
     let content = `<h3><img src=\"${imgToken}\" width=\"30px\" /></h3>` + msgs.content;
-    content = content + contentItem;
-    console.log(options);
+    console.log(options, lockitem, chestKey);
     await game.socket.emit("module.innocenti-openlock", {
         actorTargetid: targetToken.actor.id,
         token: canvas.tokens.controlled[0].id,
@@ -268,7 +270,7 @@ async function OpenChest(targetToken, lockitem, chestKey = false, options, msgs)
         disarm: options.disarm,
         remove: options.remove,
         open: options.open,
-        toolsbreak: toolsbreak
+        toolsbreak: options.toolsbreak
     });
 
     await ChatMessage.create({

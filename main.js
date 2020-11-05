@@ -12,7 +12,7 @@ Hooks.once("init", async () => {
             let targetToken = canvas.tokens.get(data.targetToken);
             let tokenitem = await targetToken.actor.items.find(a => a.id === data.item_id);
             let itemflags = tokenitem.data.flags['innocenti-openlock'];
-            if (data.open === true) {
+            if (data.open === true && !game.users.get(data.userid).isGM) {
                 if (!actor) return ui.notifications.error(`Permission: Actor of ${data.actorTargetid} not found`);
                 let newpermissions = duplicate(actor.data.permission);
                 newpermissions[`${data.userid}`] = 2;
@@ -34,7 +34,7 @@ Hooks.once("init", async () => {
                 await console.log("DESARMOU O LOCK");
             }
             if (data.remove === true || game.settings.get("innocenti-openlock", "removeLock") === true) {
-                await tokenitem.delete();
+                setTimeout(function () { tokenitem.delete(); }, 1000);
                 await console.log("REMOVER O LOCK", tokenitem);
             }
             if (data.toolsbreak === true) {
@@ -44,7 +44,7 @@ Hooks.once("init", async () => {
                     let update = { _id: item.id, "data.quantity": itemEb.data.quantity - 1 };
                     await actor.updateEmbeddedEntity("OwnedItem", update);
                 } else {
-                    await actor.items.find(a => a.name === itemName[i]).delete();
+                    setTimeout(function () { actor.items.find(a => a.name === itemName[i]).delete(); }, 1000);
                 }
             }
         }

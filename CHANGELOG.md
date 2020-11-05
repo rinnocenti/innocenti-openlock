@@ -1,3 +1,6 @@
+# v0.1.4
+* bug fix for lock with keys
+
 # v.0.1.3
 * Added maximum distance for interaction with the lock / trap
 * Added maximum distance to test players' perception

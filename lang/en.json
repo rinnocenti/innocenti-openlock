@@ -12,8 +12,8 @@
     },
 
     "OpenLock.Btn": {
-        "Strangth": "Strangth",
-        "ThievesTools": "Thieves’ Tools",
+        "Strangth": "Break Lock",
+        "ThievesTools": "Open Lock",
         "DontTouch": "Don't touch this",
         "OpenChest": "Open",
         "DisarmTrap": "Unset Trap"
@@ -42,7 +42,7 @@
         "Dontfound": "Not found",
         "haveKey": "Have the Key: ",
         "haveTrap": "Traps: ",
-        "StranghtOpen": "Broke the lock:",
+        "StranghtOpen": "Broke the lock: ",
         "TrapOnOpen": "Enabled Trap!",
         "ToolOpen": "Open the lock: ",
         "BreakTools": "With the misuse of the tool it ended up breaking"

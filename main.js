@@ -21,7 +21,7 @@ Hooks.once("init", async () => {
             }
             if (data.trap === true && data.disarm === false) {
                 data.disarm = (itemflags.resetTrap == true) ? false : true;
-                //console.log(token)
+                //console.log(actor, token);
                 await new MidiQOL.TrapWorkflow(actor, tokenitem, [token], targetToken.center);
             }
             if (data.disarm === true) {
@@ -35,7 +35,7 @@ Hooks.once("init", async () => {
                 await console.log("DESARMOU O LOCK");
             }
             if (data.remove === true || game.settings.get("innocenti-openlock", "removeLock") === true) {
-                setTimeout(function () { tokenitem.delete(); }, 1000);
+                await setTimeout(function () { tokenitem.delete(); }, 1000);
                 await console.log("REMOVER O LOCK", tokenitem);
             }
             if (data.toolsbreak === true) {
@@ -45,7 +45,7 @@ Hooks.once("init", async () => {
                     let update = { _id: item.id, "data.quantity": itemEb.data.quantity - 1 };
                     await actor.updateEmbeddedEntity("OwnedItem", update);
                 } else {
-                    setTimeout(function () { actor.items.find(a => a.name === itemName[i]).delete(); }, 1000);
+                    await setTimeout(function () { actor.items.find(a => a.name === itemName[i]).delete(); }, 1000);
                 }
                 await console.log("perdeu o thivestool", item);
             }

@@ -1,16 +1,16 @@
 //TODO: Pegar os ND da folha de item
 //TODO: Verificar a Distancia dos tokens
 export let OpenLock = async function () {
-    if (CheckTokentarget() === false) return
+    if (await CheckTokenTarget() == false) return;
     const actor = canvas.tokens.controlled[0].actor;
     for (let targetToken of game.user.targets) {
         // Checagem de distancia:
         if (CheckDistance(targetToken, game.settings.get("innocenti-openlock", "interactDistance")) === false) return;
         if (targetToken.actor.getFlag('lootsheetnpc5e', 'lootsheettype') === 'Loot') {
-            if (CheckPermission(targetToken) === true) return setTimeout(function () { targetToken._onClickLeft2() }, 500);
+            if (await CheckPermission(targetToken) == true) return setTimeout(function () { targetToken._onClickLeft2() }, 500);
             // Checagem se o loot possui uma tranca a ser aberta.
             let hasLock = await HasLock(targetToken.actor);
-            if (hasLock === false) {
+            if (hasLock == false) {
                 let options = { open: true, trap: false, disarm: false, remove: false };
                 let msg = {
                     SearchTitile: game.i18n.localize('OpenLock.MsgChat.OpenTitle'),
@@ -51,17 +51,17 @@ export let OpenLock = async function () {
                         inbutton = true;
                         if (result.total >= openlockFlags.forceLock) {
                             hasOpen = true; trapDisarm = true; trapRemove = true; haveTrap = false;
-                        }
-                        let options = { open: hasOpen, trap: haveTrap, disarm: trapDisarm, remove: trapRemove }
-                        let msg = {
-                            SearchTitile: game.i18n.localize('OpenLock.MsgChat.OpenTitle'),
-                            content: `<p>${game.i18n.localize('OpenLock.MsgChat.StranghtOpen')}<span style=\"color:${(hasOpen) ? "green" : "red"}\">${(hasOpen) ? game.i18n.localize('OpenLock.MsgChat.Yes') : game.i18n.localize('OpenLock.MsgChat.No')}</span></p>`
-                        }
-                        if (haveTrap == true && trapDisarm == false) {
-                            msg['content'] = msg['content'] + `<h3><span style=\"color: red\">${game.i18n.localize('OpenLock.MsgChat.TrapOnOpen')}</span></h3>`;
-                        }
-                        OpenChest(targetToken, hasLock, hasKey, options, msg);
+                        }                        
                     });
+                    let options = { open: hasOpen, trap: haveTrap, disarm: trapDisarm, remove: trapRemove }
+                    let msg = {
+                        SearchTitile: game.i18n.localize('OpenLock.MsgChat.OpenTitle'),
+                        content: `<p>${game.i18n.localize('OpenLock.MsgChat.StranghtOpen')}<span style=\"color:${(hasOpen) ? "green" : "red"}\">${(hasOpen) ? game.i18n.localize('OpenLock.MsgChat.Yes') : game.i18n.localize('OpenLock.MsgChat.No')}</span></p>`
+                    }
+                    if (haveTrap == true && trapDisarm == false) {
+                        msg['content'] = msg['content'] + `<h3><span style=\"color: red\">${game.i18n.localize('OpenLock.MsgChat.TrapOnOpen')}</span></h3>`;
+                    }
+                    await OpenChest(targetToken, hasLock, hasKey, options, msg);
                     console.log("bau foi aberto?", hasOpen);
                 }
             };
@@ -76,7 +76,7 @@ export let OpenLock = async function () {
                         if (result.total >= openlockFlags.openLock) {
                             hasOpen = true; trapDisarm = true; haveTrap = false;
                         }
-                        if (result.total < openlockFlags.toolsBreak) {
+                        if (result.total <= openlockFlags.toolsBreak) {
                             toolsbreak = true;
                         }
                         let options = { open: hasOpen, trap: haveTrap, disarm: trapDisarm, remove: trapRemove, toolsbreak: toolsbreak }
@@ -88,7 +88,7 @@ export let OpenLock = async function () {
                         if (haveTrap == true && trapDisarm == false) {
                             msg['content'] = msg['content'] + `<h3><span style=\"color: red\">${game.i18n.localize('OpenLock.MsgChat.TrapOnOpen')}</span></h3>`;
                         }
-                        if (haveTrap == true && toolsbreak == true) {
+                        if (toolsbreak == true) {
                             msg['content'] = msg['content'] + `<h3><img src=\"${tool.img}\" width=\"30px\" /><span style=\"color: red\"> ${game.i18n.localize('OpenLock.MsgChat.BreakTools')}</span></h3>`;
                         }
                         OpenChest(targetToken, hasLock, hasKey, options, msg);
@@ -122,12 +122,12 @@ export let OpenLock = async function () {
 }
 
 export let CheckForTraps = async function () {
-    if (CheckTokentarget() === false) return
+    if (await CheckTokenTarget() === false) return
     const actor = canvas.tokens.controlled[0].actor;
     for (let targetToken of game.user.targets) {
         if (CheckDistance(targetToken, game.settings.get("innocenti-openlock", "perceptionDistance")) === false) return;
         if (targetToken.actor.getFlag('lootsheetnpc5e', 'lootsheettype') === 'Loot') {
-            if (CheckPermission(targetToken) === true) return setTimeout(function () { targetToken._onClickLeft2() }, 500);
+            if (await CheckPermission(targetToken) === true) return setTimeout(function () { targetToken._onClickLeft2() }, 500);
             // Checagem se o loot possui uma tranca a ser aberta.
             let hasLock = await HasLock(targetToken.actor);
             if (hasLock === false) {
@@ -219,7 +219,7 @@ async function CheckForTrapsChat(foundTrap, foundKey) {
         flavor: `<h2>${game.i18n.localize('OpenLock.MsgChat.SearchTitle')}</h2>`
     });
 }
-let CheckTokentarget = () => {
+let CheckTokenTarget = () => {
     if (canvas.tokens.controlled.length === 0) {
         ui.notifications.error(game.i18n.localize('OpenLock.Errors.noSelect'));
         return false;
@@ -231,7 +231,7 @@ let CheckTokentarget = () => {
     return true;
 }
 let HasTool = async (actor) => {
-    return await actor.items.find(a => a.name === `Thieves� Tools` || a.name === game.i18n.localize('OpenLock.Msg.ThievesTools') || a.name === game.settings.get("innocenti-openlock", "nameThievesTool"));
+    return await actor.items.find(a => a.name === `Thieves’ Tools` || a.name === game.i18n.localize('OpenLock.Msg.ThievesTools') || a.name === game.settings.get("innocenti-openlock", "nameThievesTool"));
 }
 let HasKey = (lock, actor) => {
     let keylock = lock.getFlag('innocenti-openlock', "keylock");

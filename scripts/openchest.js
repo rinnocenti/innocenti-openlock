@@ -19,11 +19,11 @@ export let OpenLock = async function () {
                 await OpenChest(targetToken, hasLock, false, options, msg);
                 return;
             }
-            //Tem uma trance então verificar se possui a chave ou se precisa de uma.
-            // Tem um a tranca, não possuo uma chave, então verificar se há uma armadilha.
+            //Tem uma trance entï¿½o verificar se possui a chave ou se precisa de uma.
+            // Tem um a tranca, nï¿½o possuo uma chave, entï¿½o verificar se hï¿½ uma armadilha.
             let hasKey = HasKey(hasLock, actor);
             if (hasKey) {
-                // Se precisa de uma chave e eu tenho a chave não preciso checar mais nada.
+                // Se precisa de uma chave e eu tenho a chave nï¿½o preciso checar mais nada.
                 let options = { open: true, trap: false, disarm: false, remove: false }
                 let msg = {
                     SearchTitile: game.i18n.localize('OpenLock.MsgChat.OpenTitle'),
@@ -32,10 +32,10 @@ export let OpenLock = async function () {
                 await OpenChest(targetToken, hasLock, hasKey, options, msg);
                 return;
             }
-            let hasOpen = false; let trapDisarm = false; let trapRemove = false; let toolsbreak = false;// Se tem tranca então esta fechado para quem não tem permissão ou a chave
-            // Verificar se há alguma armadilha configurada
+            let hasOpen = false; let trapDisarm = false; let trapRemove = false; let toolsbreak = false;// Se tem tranca entï¿½o esta fechado para quem nï¿½o tem permissï¿½o ou a chave
+            // Verificar se hï¿½ alguma armadilha configurada
             let haveTrap = (hasLock.data.data.actionType !== '') ? true : false;
-            // Daqui em diante Supões-se esta fechado trancado e pode haver ou não uma armadilha
+            // Daqui em diante Supï¿½es-se esta fechado trancado e pode haver ou nï¿½o uma armadilha
             const openlockFlags = GetFlagsChecks(hasLock);
             //const activation = PrepareActivations(hasLock.data.data.activation['condition']);
             // Verifica se possui um tool para arrombar a tranca
@@ -140,6 +140,7 @@ export let CheckForTraps = async function () {
                 return;
             }
             let hasKey = await HasKey(hasLock, actor);
+            console.log(hasKey);
             let foundTrap = false;
             let foundKey = false;
             let haveTrap = (hasLock.data.data.actionType !== '') ? true : false;
@@ -230,7 +231,7 @@ let CheckTokentarget = () => {
     return true;
 }
 let HasTool = async (actor) => {
-    return await actor.items.find(a => a.name === `Thieves’ Tools` || a.name === game.i18n.localize('OpenLock.Msg.ThievesTools') || a.name === game.settings.get("innocenti-openlock", "nameThievesTool"));
+    return await actor.items.find(a => a.name === `Thievesï¿½ Tools` || a.name === game.i18n.localize('OpenLock.Msg.ThievesTools') || a.name === game.settings.get("innocenti-openlock", "nameThievesTool"));
 }
 let HasKey = (lock, actor) => {
     let keylock = lock.getFlag('innocenti-openlock', "keylock");
@@ -244,9 +245,9 @@ let HasLock = async (actor) => {
 let CheckPermission = async (targetToken) => {
     let entityTarget = await game.actors.entities.find(a => a.id === targetToken.actor.id);
     let perm = entityTarget.data.permission;
-    // Se já tenho permissão não preciso testar nada.
+    // Se jï¿½ tenho permissï¿½o nï¿½o preciso testar nada.
     if (perm[`${game.user.id}`]) return true
-    //console.log("Não tenho permissão");
+    //console.log("Nï¿½o tenho permissï¿½o");
     return false;
 }
 function GetFlagsChecks(haslock) {

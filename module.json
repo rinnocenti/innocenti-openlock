@@ -3,7 +3,7 @@
     "title": "Innocenti Open Lock",
     "description": "<p>Modules for opening locks using keys, force or picklock</p>",
     "author": "Renato innocenti",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "minimumCoreVersion": "0.7.0",
     "compatibleCoreVersion": "0.7.5",
     "systems": [ "dnd5e" ],
@@ -29,7 +29,7 @@
     "languages": [
         {
             "lang": "pt-BR",
-            "name": "Português (Brasil)",
+            "name": "PortuguÃªs (Brasil)",
             "path": "lang/pt-BR.json"
         },
         {

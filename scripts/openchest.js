@@ -1,5 +1,5 @@
-//TODO: Pegar os ND da folha de item
-//TODO: Verificar a Distancia dos tokens
+//import { OpenLocks } from "./openlocks.js";
+
 export let OpenLock = async function () {
     if (await CheckTokenTarget() == false) return;
     const actor = canvas.tokens.controlled[0].actor;
@@ -288,7 +288,6 @@ async function OpenChest(targetToken, lockitem, chestKey = false, options, msgs)
     if (options.open === true)
         await setTimeout(function () { targetToken._onClickLeft2() }, 500);
 }
-
 let CheckDistance = (targetToken, minDistance = 1) => {
     let gridDistance = (minDistance < 1) ? 1 : minDistance;
     // minimo de distancia 1
@@ -297,40 +296,4 @@ let CheckDistance = (targetToken, minDistance = 1) => {
     if (nGrids <= gridDistance) return true;
     ui.notifications.warn(game.i18n.format("OpenLock.Errors.invalidDistance", { dist: gridDistance }));
     return false;
-}
-
-export class OpenLooks {
-
-    constructor(flags) {
-        this.data = mergeObject(this.defaultData(), flags || {}, { inplace: false });
-
-        this.enabled = this.data.enabled;
-        this.disarmTrap = parseInt(this.data.disarmTrap);
-        this.findTrap = parseInt(this.data.findTrap);
-        this.forceLock = parseInt(this.data.forceLock);
-        this.openLock = parseInt(this.data.openLock);
-        this.keylock = this.data.keylock;
-        this.toolsBreak = parseInt(this.data.toolsBreak);
-        this.resetTrap = this.data.resetTrap;
-    }
-
-    defaultData() {
-        return {
-            enabled: false,
-            disarmTrap: 10,
-            findTrap: 10,
-            forceLock: 12,
-            openLock: 10,
-            toolsBreak: 5,
-            keylock: '',
-            resetTrap: false
-        }
-    }
-    toggleEnabled(enabled) {
-        this.enabled = enabled;
-        if (!enabled) {
-            mergeObject(this, this.defaultData());
-        }
-    }
-
 }

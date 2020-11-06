@@ -31,7 +31,7 @@
     "OpenLock.MsgChat": {
         "Used": "Used: ",
         "Loot": "Opened: ",
-        "SearchTitle": "Find Traps",
+        "SearchTitle": "Check Loot",
         "TitleDisarm": "Disarm Traps",
         "TrapDisarm": "Disarmed Trap: ",
         "OpenTitle": "Open Chest",
@@ -45,7 +45,8 @@
         "StranghtOpen": "Broke the lock: ",
         "TrapOnOpen": "Enabled Trap!",
         "ToolOpen": "Open the lock: ",
-        "BreakTools": "With the misuse of the tool it ended up breaking"
+        "BreakTools": "With the misuse of the tool it ended up breaking",
+        "NeedKey": "Need Key: "
     },
     "OpenLock.ItemLabel": {
         "disarmTrapDC": "Disarm Trap DC",

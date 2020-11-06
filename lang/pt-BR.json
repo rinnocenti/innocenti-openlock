@@ -31,7 +31,7 @@
     "OpenLock.MsgChat": {
         "Used": "Usou: ",
         "Loot": "Abriu: ",
-        "SearchTitle": "Procurar Armadilhas",
+        "SearchTitle": "Verificar Pilhagem",
         "TitleDisarm": "Desarmar Armadilhas",
         "TrapDisarm": "Armadilha Desarmada: ",
         "OpenTitle": "Abrir Objeto",
@@ -45,7 +45,8 @@
         "StranghtOpen": "Quebrou a trava:",
         "TrapOnOpen": "Ativou Armadilha!",
         "ToolOpen": "Abriu a trava: ",
-        "BreakTools": "Com o mau uso da ferramenta ela acabou se quebrando"
+        "BreakTools": "Com o mau uso da ferramenta ela acabou se quebrando",
+        "NeedKey": "Precisa de Chave: "
     },
     "OpenLock.ItemLabel": {
         "disarmTrapDC": "Disarmar Armadilhas CD",

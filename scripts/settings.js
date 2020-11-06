@@ -5,7 +5,7 @@ Hooks.once("init", () => {
         hint: game.i18n.localize('OpenLock.Settings.ThievesToolHint'),
         scope: "world",
         config: true,
-        default: "Thieves’ Tools",
+        default: "Thievesâ€™ Tools",
         type: String
     });
     game.settings.register("innocenti-openlock", "perceptionDistance", {

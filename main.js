@@ -1,10 +1,23 @@
-//import { OpenLock, CheckForTraps } from './scripts/openchest.js';
-import { ActionLock, GMActions } from './scripts/openlock.js';
+import { SETTINGS } from './scripts/settings.js';
+import { GMActions } from './scripts/gmactions.js';
+import { ActionLock } from './scripts/actions.js';
+//import { ActionsDialog } from './scripts/actionsDialog.js';
 import { OpenLockTab } from "./scripts/openlocktab.js";
 
 Hooks.once("init", async () => {
-    game.socket.on(`module.innocenti-openlock`, async (data) => {
-        GMActions(data);
+    game.socket.on(`module.${SETTINGS.MODULE_NAME}`, async (data) => {
+        if (game.user.isGM) {
+            let gmaction = new GMActions(data);
+            await gmaction.SetPermission();
+            await gmaction.TriggerTrap();
+            if (data.tool.have && data.tool.broke) {
+                await gmaction.RemoveItem(gmaction.token, data.tool.have);
+                gmaction.data.tool.have = false;
+                gmaction.data.tool.broke = false;
+            }
+            await gmaction.SetFlags();
+        }
+        
 //        if (game.user.isGM) {
 //            let actor = game.actors.entities.find(a => a.id === data.actorTargetid);
 //            //let item = actor.items.find(a => a.id === data.item_id);
@@ -53,10 +66,15 @@ Hooks.once("init", async () => {
     });
 });
 Hooks.on("renderItemSheet", (app, html, data) => {
+    //const element = html.find(`select[name="data.consumableType"]`);
+    //element.append($(
+    //    `<option value=\"lock\">${game.i18n.localize('OpenLock.MsgDialog.ConsumableLock')}</option>`
+    //));
     OpenLockTab.bind(app, html, data);
 })
 window.InnocentiOpenLock = {
     //Chest: OpenLock,
     Actions: ActionLock,
+    //Dialogs: ActionsDialog
     //Door: Door
 }

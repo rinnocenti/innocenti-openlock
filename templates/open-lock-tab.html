@@ -9,13 +9,23 @@
             <label>{{localize "OpenLock.ItemLabel.keylock"}}</label>
             <input type="text" name="flags.innocenti-openlock.keylock" value="{{keylock}}">
         </div>
-        <div class="form-group input-select">
-            <label>{{localize "OpenLock.ItemLabel.disarmTrapDC"}}</label>
-            <input type="text" name="flags.innocenti-openlock.disarmTrap" value="{{disarmTrap}}" data-dtype="Number">
-        </div>
         <div class="form-group">
+            <label>{{localize "OpenLock.ItemLabel.disarmTrapDC"}}</label>
+            <input type="text" name="flags.innocenti-openlock.disarmTrap" value="{{passive}}" data-dtype="Number">
+        </div>
+        <div class="form-group input-select">
             <label>{{localize "OpenLock.ItemLabel.findTrapDC"}}</label>
-            <input class="open-lock-charges" type="text" data-dtype="Number" name="flags.innocenti-openlock.findTrap" value="{{findTrap}}">
+            <div class="form-fields">
+                <input class="open-lock-charges" type="text" data-dtype="Number" name="flags.innocenti-openlock.findTrap" value="{{findTrap}}">
+                <select name="flags.innocenti-openlock.skillfindTrap">
+                    <option value="prc" {{#ifeq skillfindTrap "prc"}} selected{{/ifeq}}>{{localize "OpenLock.ItemLabel.Perception"}}</option>
+                    <option value="inv" {{#ifeq skillfindTrap "inv"}} selected{{/ifeq}}>{{localize "OpenLock.ItemLabel.Investigation"}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group input-select">
+            <label>{{localize "OpenLock.ItemLabel.passiveDC"}}</label>
+            <input type="text" name="flags.innocenti-openlock.passive" value="{{disarmTrap}}" data-dtype="Number">
         </div>
         <div class="form-group">
             <label>{{localize "OpenLock.ItemLabel.forceLockDC"}}</label>

@@ -1,3 +1,13 @@
+# v0.2.0
+* Restructuring of the source code [RECOMMENDED EDITING THE LOCKS]
+* Now separate the Check, Disarm and Open Loot macros [NEW MACROS - MANDATORY UPDATE]
+* Find traps now has 2 checks with different CDs (passive and active)
+* Now to check a trap it is also possible to choose between a perception check or an investigation check.
+* Now it has a threshold so that the thieves' tools can break, it is also used to break the lock if the strength test is greater than the CD + Threshold;
+* FIX - Changes in chat message views;
+* FIX - chat messages are now displayed after the dice roll (if the dice-so-nice module is active);
+* Updated to FVTT v0.7.6
+
 # v0.1.4
 * bug fix for lock with keys
 

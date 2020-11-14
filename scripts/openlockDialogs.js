@@ -1,55 +1,36 @@
 export class DialogActions {
-    constructor(title, content) {
-        this.dialogBase = this.BaseDialog(title, content);
+    constructor(title, content, callClose) {
+        this.dialogBase = this.BaseDialog(title, content, callClose);
     }
-    BaseDialog(title, content, close) {
+    BaseDialog(title, content, callClose) {
         let base = {
             title: title,
             content: content,
-            close: () => close
+            close: callClose
         }
         return base;
     }
-    async DialogCheckTrapsButton(callOpen, callDisarm) {
-        let btnone = this.ButtonOpenLock(callOpen);
-        let btntwo = (count[1] !== undefined && count[1] === 'dex') ? this.ButtonTools(calldex) : this.ButtonKey(callkey);
-        let btntree = this.ButtonKey(callkey);
-        let a;
-        if (count.length < 2) a = { buttons: { one: btnone }, default: 'one' };
-        if (count.length == 2) a = { buttons: { one: btnone, two: btntwo }, default: 'one' };
-        if (count.length > 2) a = { buttons: { one: btnone, two: btntwo, tree: btntree }, default: 'one' };
-        this.dialogBase = Object.assign(this.dialogBase, a);
+    async DialogButtons(data) {
+        let btns = {
+            buttons: {},
+            default: data.default
+        }        
+        for (let btn in data.buttons) {
+            btns.buttons[btn] = this.ButtonOpenLock(btn, data.buttons[btn]);
+        }
+        this.dialogBase = Object.assign(this.dialogBase, btns);
     }
-    ButtonOpenLock(callback) {
-        let a = {
-            icon: '<i class="fas fa-unlock"></i>',
-            label: game.i18n.localize('OpenLock.Btn.OpenChest'),
+    ButtonOpenLock(type, callback) {
+        let buttonsIcons = {
+            'OpenChest': '<i class="fas fa-unlock"></i>',
+            'DisarmTrap': '<i class="fas fa-cogs"></i>',
+            'BreakLock': '<i class="fas fa-fist-raised"></i>',
+            'PickLock': '<i class="fas fa-user-lock"></i>'
+        }
+        return {
+            icon: buttonsIcons[type],
+            label: game.i18n.localize(`OpenLock.Btn.${type}`),
             callback: callback
         }
-        return a;
-    }
-    ButtonDisarmTrap(callback) {
-        let a = {
-            icon: '<i class="fas fa-cogs"></i>',
-            label: game.i18n.localize('OpenLock.Btn.DisarmTrap'),
-            callback: callback
-        }
-        return a;
-    }
-    ButtonBreakLock(callback) {
-        let a = {
-            icon: '<i class="fas fa-fist-raised"></i>',
-            label: game.i18n.localize('OpenLock.Btn.Strangth'),
-            callback: callback
-        }
-        return a;
-    }
-    ButtonPickLock(callback) {
-        let a = {
-            icon: '<i class="fas fa-user-lock"></i>',
-            label: game.i18n.localize('OpenLock.Btn.ThievesTools'),
-            callback: callback
-        }
-        return a;
     }
 }

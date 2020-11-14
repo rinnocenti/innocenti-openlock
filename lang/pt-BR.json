@@ -1,68 +1,76 @@
 {
-    "OpenLock.Settings": {
-        "ThievesTool": "Ferramenta de Ladrão",
-        "ThievesToolTitle": "Ferramenta de Ladrão: ",
-        "ThievesToolHint": "Nome do item que representa a ferramenta de ladino",
-        "removeLock": "Remover tranca",
-        "removeLockHint": "Remover a tranca após abrir?",
-        "perceptionDistance": "Distância máxima para percepção (em grade)",
-        "perceptionDistanceHint": "A distância máxima para o jogador poder testar percepção em unidades de grade do mapa",
-        "interactDistance": "Distância máxima para interagir (em grade)",
-        "interactDistanceHint": "A distância mimáxima para os jogadores interagirem com a trava em unidades de grade do mapa"
-    },
+  "OpenLock.Settings": {
+    "ThievesTool": "Ferramenta de Ladrão",
+    "ThievesToolTitle": "Ferramenta de Ladrão: ",
+    "ThievesToolHint": "Nome do item que representa a ferramenta de ladino",
+    "removeLock": "Remover tranca",
+    "removeLockHint": "Remover a tranca após abrir?",
+    "perceptionDistance": "Distância máxima para percepção (em grade)",
+    "perceptionDistanceHint": "A distância máxima para o jogador poder testar percepção em unidades de grade do mapa",
+    "interactDistance": "Distância máxima para interagir (em grade)",
+    "interactDistanceHint": "A distância mimáxima para os jogadores interagirem com a trava em unidades de grade do mapa"
+  },
 
-    "OpenLock.Btn": {
-        "Strangth": "Força",
-        "ThievesTools": "Ferramenta de Ladino",
-        "DontTouch": "Não Tocar",
-        "OpenChest": "Abrir",
-        "DisarmTrap": "Desarmar Armadilha"
-    },
+  "OpenLock.Btn": {
+    "BreakLock": "Quebrar Fechadura",
+    "PickLock": "Arrombar Fechadura",
+    "DontTouch": "Não Tocar",
+    "OpenChest": "Abrir",
+    "DisarmTrap": "Desarmar Armadilha"
+  },
 
-    "OpenLock.MsgDialog": {
-        "TrapAlert": "Atenção!! Armadilha detectada!",
-        "HaveKey": "Você tem a chave apara este baú",
-        "HasLock": "Este baú está trancado",
-        "Title": "Abrir Baú",
-        "TitleCheck": "Verificar Armadilhas",
-        "Content": "O Baú esta trancado, como você deseja abri-lo?",
-        "ContentCheck": "Você encontrou um Báu o que deseja fazer?"
-    },
-    "OpenLock.MsgChat": {
-        "Used": "Usou: ",
-        "Loot": "Abriu: ",
-        "SearchTitle": "Verificar Pilhagem",
-        "TitleDisarm": "Desarmar Armadilhas",
-        "TrapDisarm": "Armadilha Desarmada: ",
-        "OpenTitle": "Abrir Objeto",
-        "NotLock": "Este Item não possui um despositvo de trava",
-        "hasLock": "Trancado: ",
-        "Yes": "Sim",
-        "No": "Não",
-        "Dontfound": "Não Encontrei",
-        "haveKey": "Possuo a chave: ",
-        "haveTrap": "Armadilhas: ",
-        "StranghtOpen": "Quebrou a trava:",
-        "TrapOnOpen": "Ativou Armadilha!",
-        "ToolOpen": "Abriu a trava: ",
-        "BreakTools": "Com o mau uso da ferramenta ela acabou se quebrando",
-        "NeedKey": "Precisa de Chave: "
-    },
-    "OpenLock.ItemLabel": {
-        "disarmTrapDC": "Disarmar Armadilhas CD",
-        "findTrapDC": "Encontrar Armadilhas CD",
-        "forceLockDC": "Forçar Fechadura CD",
-        "openLockDC": "Abrir Fechadura CD",
-        "toolsBreak": "Limite para Quebrar a Ferramenta",
-        "resetTrap": "Reiniciar Armadilha",
-        "keylock": "Nome do Item Chave",
-        "SheetEnabled": "Habilitar Tranca/Armadilha",
-        "OpenTitle": "Abrir Baús"
-    },
-    "OpenLock.Errors": {
-        "noSelect": "Selecione um Token",
-        "noToken": "Nenhum token esta marcado como alvo",
-        "novalidLoot": " não é um baú válido",
-        "invalidDistance": "A distancia minima para esta interação é: {dist} quadros"
-    }
+  "OpenLock.MsgDialog": {
+    "TrapAlert": "Atenção!! Armadilha detectada!",
+    "HaveKey": "Você tem a chave apara este baú",
+    "HasLock": "Este baú está trancado",
+    "Title": "Abrir Baú",
+    "TitleCheck": "Verificar Armadilhas",
+    "Content": "O Baú esta trancado, como você deseja abri-lo?",
+    "ContentCheck": "Você encontrou um Báu o que deseja fazer?",
+    "ConsumableLock": "Cadeado",
+    "TrapDisarm": "A armadilha foi desativada com sucesso!"
+  },
+  "OpenLock.MsgChat": {
+    "Used": "Usou: ",
+    "Loot": "Abriu: ",
+    "SearchTitle": "Verificar Pilhagem",
+    "TitleDisarm": "Desarmar Armadilhas",
+    "TrapDisarm": "Armadilha Desarmada: ",
+    "OpenTitle": "Abrir Objeto",
+    "NotLock": "Este Item não possui um despositvo de trava",
+    "hasLock": "Trancado: ",
+    "Yes": "Sim",
+    "No": "Não",
+    "Dontfound": "Não Encontrei",
+    "haveKey": "Possuo a chave: ",
+    "haveTrap": "Armadilhas: ",
+    "StranghtOpen": "Quebrou a trava:",
+    "TrapOnOpen": "Ativou Armadilha!",
+    "ToolOpen": "Abriu a trava: ",
+    "BreakTools": "Com o mau uso da ferramenta de ladrão ela quebrou!",
+    "NeedKey": "Precisa de Chave: ",
+    "HavePermission": "{token} possui permissão"
+  },
+  "OpenLock.ItemLabel": {
+    "disarmTrapDC": "Disarmar Armadilhas CD",
+    "passiveDC": "Encontrar com Passiva CD",
+    "findTrapDC": "Encontrar Armadilhas CD",
+    "Perception": "Percepção",
+    "Investigation": "Investigação",
+    "forceLockDC": "Forçar Fechadura CD",
+    "openLockDC": "Abrir Fechadura CD",
+    "toolsBreak": "Limite para Quebrar a Ferramenta",
+    "resetTrap": "Reiniciar Armadilha",
+    "keylock": "Nome do Item Chave",
+    "SheetEnabled": "Habilitar Tranca/Armadilha",
+    "OpenTitle": "Abrir Baús"
+  },
+  "OpenLock.Errors": {
+    "noSelect": "Selecione um Token",
+    "noToken": "Nenhum token esta marcado como alvo",
+    "novalidLoot": " não é um baú válido",
+    "invalidDistance": "A distancia minima para esta interação é: {dist} quadros",
+    "invalidCheck": "{token} não pode procurar na mesma pilhagem mais de uma vez (Exibindo a ultima checagem)",
+    "notHaveTools": "Você não possui um {tools}"
+  }
 }

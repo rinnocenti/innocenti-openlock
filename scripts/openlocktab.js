@@ -6,7 +6,8 @@ export class OpenLockTab {
 
     static bind(app, html, data) {
         let acceptedTypes = ['feat'];
-        if(acceptedTypes.includes(data.entity.type)) {
+        //if (acceptedTypes.includes(data.entity.type) || data.entity.data.consumableType == 'lock') {
+        if (acceptedTypes.includes(data.entity.type)) {
             let tab = openLockTab[app.id];
             if(!tab) {
                 tab = new OpenLockTab(app);
@@ -43,7 +44,6 @@ export class OpenLockTab {
         $(this.html.find(`.sheet-body`)).append($(
             '<div class="tab open-lock" data-group="primary" data-tab="innocenti-openlock"></div>'
         ));
-
         this.render();
     }
 

@@ -66,6 +66,12 @@ the value for the difficulty class to open the lock, it is necessary to have one
 #### Threshold of Tools Break 
 If the value of the thieves' tools use test is below the threshold indicated, the tool will break and will be removed from the character's inventory.
 
+<<<<<<< HEAD
+=======
+#### Reset Trap
+The trap (if any) will always be active again even if activated once before, but if disarmed with thieves' tools it does not activate again.
+
+>>>>>>> v.0.2.0
 3) Place the "Lock" object on the loot sheet.
 
 4) Create two macros with permission for all your players with the following content:
@@ -75,9 +81,12 @@ macro1 - FIND TRAP
 
 macro2 - OPEN CHEST
 `let actions = new InnocentiOpenLock.Actions('OpenLock');`
+<<<<<<< HEAD
 
 Advanced: you can also separate the workflow into individual macros, just change the name of the actions in parentheses.
 `'Breaklock', 'Picklock', 'DisarmTraps'`
+=======
+>>>>>>> v.0.2.0
 
 there are examples in the module pack
 

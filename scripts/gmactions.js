@@ -5,6 +5,20 @@ export class GMActions {
         this.targetToken = canvas.tokens.get(data.targetid);
         this.token = canvas.tokens.get(data.tokenid);
         this.actor = game.actors.entities.find(a => a.id === this.token.actor.id);
+<<<<<<< HEAD
+=======
+        
+
+        //if (!game.user.isGM) {
+        //    data.tokenid = tokenid;
+        //    data.targetid = targetid;
+        //    data.userid = game.user.id;
+        //    game.socket.emit(`module.${MODULE_NAME}`, data);
+        //}
+        //} else {            
+        //    this.Init(token, targetToken, actor, data);
+        //}
+>>>>>>> v.0.2.0
     }
 
     async Init(token, targetToken, actor, data) {
@@ -21,9 +35,16 @@ export class GMActions {
 
     async SetPermission() {        
         let entityTarget = await game.actors.entities.find(a => a.id === this.targetToken.actor.id);
+<<<<<<< HEAD
         this.perm = entityTarget.data.permission;
         // Se já tenho permissão não preciso testar nada.
         if (this.perm[`${this.data.userid}`] && this.perm[`${this.data.userid}`] >= 2) return;
+=======
+        let perm = entityTarget.data.permission;
+        // Se já tenho permissão não preciso testar nada.
+        if (perm[`${this.data.userid}`] && perm[`${this.data.userid}`] >= 2) return;
+        console.log("Permission", this.data, this.targetToken.actor);
+>>>>>>> v.0.2.0
         if (!this.data.lock.have || this.data.keys.have || this.data.lock.disarm || this.data.lock.broke && !game.users.get(this.data.userid).isGM) {
             if (!this.targetToken.actor) return ui.notifications.error(`Permission: Actor of ${this.data.targetid} not found`);
             let newpermissions = duplicate(this.targetToken.actor.data.permission);
@@ -34,9 +55,14 @@ export class GMActions {
     }
 
     async TriggerTrap() {
+<<<<<<< HEAD
         if (this.perm[`${this.data.userid}`] && this.perm[`${this.data.userid}`] >= 2) return;
         let tokenitem = await this.targetToken.actor.items.find(a => a.id === this.data.lock.have);
         if (this.data.trap.trigger && tokenitem.data.data.actionType !== '') {
+=======
+        let tokenitem = await this.targetToken.actor.items.find(a => a.id === this.data.lock.have);
+        if (this.data.trap.trigger) {
+>>>>>>> v.0.2.0
             await new MidiQOL.TrapWorkflow(this.targetToken.actor, tokenitem, [this.token], this.targetToken.center);
             let updates = await this.targetToken.actor.items.map(itemup => {
                 if (itemup.name === tokenitem.name)
@@ -64,5 +90,9 @@ export class GMActions {
             } else {
                 await itemtools.delete();
             }
+<<<<<<< HEAD
+=======
+            console.log("perdeu o thivestool", itemtools);
+>>>>>>> v.0.2.0
     }
 }

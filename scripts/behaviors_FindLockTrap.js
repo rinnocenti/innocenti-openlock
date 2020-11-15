@@ -10,6 +10,10 @@ export class FindLockTrap extends Behaviors {
     }
     Check(distclose = false) {
         // Check a distancia entre tokens
+<<<<<<< HEAD
+=======
+
+>>>>>>> v.0.2.0
         super.Check(this.target, this.token, distclose);
         if (this.denied) return;
         if (this.options.attemptsChecks >= 1 && !game.settings.get(SETTINGS.MODULE_NAME, "repeatCheck")) {

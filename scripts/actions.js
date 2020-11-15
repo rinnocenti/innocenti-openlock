@@ -4,7 +4,10 @@ import { FindLockTrap } from './behaviors_FindLockTrap.js';
 import { OpenLock } from './behaviors_OpenLock.js';
 import { DisarmTraps } from './behaviors_DisarmTraps.js';
 import { Picklock } from './behaviors_Picklock.js';
+<<<<<<< HEAD
 import { Breaklock } from './behaviors_Breaklock.js';
+=======
+>>>>>>> v.0.2.0
 
 export class ActionLock {
     constructor(behaviors) {
@@ -25,6 +28,10 @@ export class ActionLock {
             let actions = eval(behaviors);
             let action = new actions(targetToken, this.token);
             await action.RealCheck();
+<<<<<<< HEAD
+=======
+            //await action.ModelDialog();
+>>>>>>> v.0.2.0
             await action.ModelData();            
             if (game.modules.get('dice-so-nice')?.active && action.roll) {
                 Hooks.on('diceSoNiceRollComplete', (messageId) => {

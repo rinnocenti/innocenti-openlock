@@ -17,43 +17,22 @@ export class DisarmTraps extends OpenLock {
                 this.options.trap.trigger = false;
                 return;
             } else if (this.options.trap.found && this.options.tool.have) {
-<<<<<<< HEAD
                 this.roll = true;
                 await this.lock.tools.rollToolCheck().then((result) => {
                     if (result.total >= this.lock.settings.disarmTrap) {
                         this.options.trap.disarm = true;
                     } else {
                         if (result.total <= (this.lock.settings.disarmTrap - this.lock.settings.toolsBreak)) {
-=======
-                console.log(this.options.trap.attempts);
-                this.roll = true;
-                await this.lock.tools.rollToolCheck().then((result) => {
-                    console.log(result.total, this.lock.settings.disarmTrap, this.lock.settings.toolsBreak)
-                    if (result.total >= this.lock.settings.disarmTrap) {
-                        console.log("Conseguiu desarmar");
-                        this.options.trap.disarm = true;
-                    } else {
-                        if (result.total <= (this.lock.settings.disarmTrap - this.lock.settings.toolsBreak)) {
-                            console.log("Quebrou o tools")
->>>>>>> v.0.2.0
                             this.options.tool.broke = true;
                         }
                         this.options.trap.trigger = true;
                         this.options.trap.disarm = (this.lock.settings.resetTrap) ? false : true;
-<<<<<<< HEAD
-=======
-                        console.log("Dispara a armadilha");
->>>>>>> v.0.2.0
                     }
                 });
                 console.log("Fim do roll", this.options);
             } else {
-<<<<<<< HEAD
                 if (!this.options.tool.have)
                     ui.notifications.warn(game.i18n.format("OpenLock.Errors.notHaveTools", { tools: game.i18n.localize('OpenLock.Settings.ThievesTool') }));
-=======
-                ui.notifications.warn(game.i18n.format("OpenLock.Errors.notHaveTools", { tools: game.i18n.localize('OpenLock.Settings.ThievesTool') }));
->>>>>>> v.0.2.0
                 this.denied = true;
                 return;
             }

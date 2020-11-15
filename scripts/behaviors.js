@@ -34,19 +34,9 @@ export class Behaviors {
             this.options.lock = flags.lock;
             this.options.attemptsChecks = flags.attemptsChecks;
         }
-<<<<<<< HEAD
     }
     async RealCheck() { }
     async ModelData() {
-=======
-        //if (this.lock.tools && this.options.tool.broke) {
-        //    this.lock.tools = null;
-        //}
-    }
-    async RealCheck() { }
-    async ModelData() {
-        console.log("Model", this.options, this.lock.tools);
->>>>>>> v.0.2.0
         this.options = {
             userid: game.user.id,
             tokenid: this.token.id,
@@ -144,24 +134,4 @@ export class LootLock {
     GetTools(charToken) {
         return charToken.actor.items.find(a => a.name === SETTINGS.THIEVESTOOLS || a.name === game.i18n.localize('OpenLock.Msg.ThievesTools') || a.name === game.settings.get(SETTINGS.MODULE_NAME, "nameThievesTool"));
     }
-<<<<<<< HEAD
-=======
-}
-export class DoorLock {
-    constructor(doorRef, charToken) {
-
-    }
-
-    GetTrap(door) {
-        //(lock.data.data.actionType !== '') ? true : false;
-    }
-
-    GetLockKey(charToken, keySetting) {
-        //return (keySetting !== '') ? personActor.items.find(item => item.name === `${keySetting}`) : false;
-    }
-
-    GetTools(charToken) {
-        //return charToken.actor.items.find(a => a.name === THIEVESTOOLS || a.name === game.i18n.localize('OpenLock.Msg.ThievesTools') || a.name === game.settings.get(MODULE_NAME, "nameThievesTool"));
-    }
->>>>>>> v.0.2.0
 }

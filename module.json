@@ -9,7 +9,7 @@
     "version": "0.1.7",
 >>>>>>> v.0.2.0
     "minimumCoreVersion": "0.7.0",
-    "compatibleCoreVersion": "0.7.6",
+    "compatibleCoreVersion": "0.7.7",
     "systems": [ "dnd5e" ],
     "esmodules": [ "main.js", "scripts/settings.js" ],
     "scripts": [],

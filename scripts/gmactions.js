@@ -8,14 +8,9 @@ export class GMActions {
     }
 
     async Init() {
-        console.log("Entrou aqui");
-        
-        if (this.data.door.have) {
-            await this.ShowDoor();
-            await this.OpenDoor();
-        } else {
-            await this.SetPermission();
-        }        
+        await this.ShowDoor();
+        await this.OpenDoor();
+        await this.SetPermission();
         await this.TriggerTrap();
         if (this.data.tool.have && this.data.tool.broke) {
             await this.RemoveItem(this.token, this.data.tool.have);
@@ -29,7 +24,7 @@ export class GMActions {
     }
 
     async SetFlags() {
-        //await this.targetToken.setFlag(SETTINGS.MODULE_NAME, this.actor.id, this.data);
+        await this.targetToken.setFlag(SETTINGS.MODULE_NAME, this.actor.id, this.data);
         console.log("SALVANDO FLAGS...", this.data);
     }
 
@@ -37,6 +32,7 @@ export class GMActions {
         let entityTarget = await game.actors.entities.find(a => a.id === this.targetToken.actor.id);
         this.perm = entityTarget.data.permission;
         // Se já tenho permissão não preciso testar nada.
+        if (this.data.door.have) return;
         if (this.perm[`${this.data.userid}`] && this.perm[`${this.data.userid}`] >= 2) return;
         if (!this.data.lock.have || this.data.keys.have || this.data.lock.disarm || this.data.lock.broke && !game.users.get(this.data.userid).isGM) {
             if (!this.targetToken.actor) return ui.notifications.error(`Permission: Actor of ${this.data.targetid} not found`);
@@ -86,13 +82,13 @@ export class GMActions {
         if (this.data.door.found && door.data.door == 2) {
             this.data.door.secret = 1;
             await door.update({ door: 1 });
-        }            
+        }
     }
 
     async OpenDoor() {
         if (!this.data.lock.have || this.data.keys.have || this.data.lock.disarm || this.data.lock.broke) {
             let door = canvas.walls.get(this.data.door.have);
-            if (this.data.door.found && door.data.door != 2) {
+            if ((this.data.door.found && door.data.door == 2) || door.data.door != 2) {
                 let ds = (this.data.door.locked == 2) ? 1 : this.data.door.locked;
                 ds = (this.data.lock.broke) ? 1 : ds;
                 await door.update({ ds: ds });

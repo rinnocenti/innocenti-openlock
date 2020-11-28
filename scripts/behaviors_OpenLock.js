@@ -42,7 +42,7 @@ export class OpenLock extends Behaviors {
             },
             default: 'BreakLock'
         }
-        console.log(this.options);
+        //console.log(this.options);
         if (this.options.tool.have && !this.options.lock.disarm && !this.options.tool.broke) {
             dialogData.buttons['PickLock'] = this.PickButton;
         }
@@ -56,7 +56,7 @@ export class OpenLock extends Behaviors {
             }
         }
         await super.ModelDialog(dialogData)
-        console.log("Depois do dialogo");
+        //console.log("Depois do dialogo");
     }
 
     BreakButton() { new InnocentiOpenLock.Actions('Breaklock');}

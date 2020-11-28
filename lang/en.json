@@ -51,7 +51,8 @@
     "ToolOpen": "Open the lock: ",
     "BreakTools": "With misuse, the thieves' tools broke!",
     "NeedKey": "Need Key: ",
-    "HavePermission": "{token} have permission"
+    "HavePermission": "{token} have permission",
+    "Door": "Door: "
   },
   "OpenLock.ItemLabel": {
     "disarmTrapDC": "Disarm Trap DC",
@@ -65,7 +66,8 @@
     "resetTrap": "Reset Trap",
     "keylock": "Item Key Name",
     "SheetEnabled": "Enable Lock/Trap",
-    "OpenTitle": "Open Chests"
+    "OpenTitle": "Open Chests",
+    "wallCoord":  "Wall Coordenates"
   },
   "OpenLock.Errors": {
     "noSelect": "Select a token",

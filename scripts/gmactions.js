@@ -1,4 +1,4 @@
-const MODULE_NAME = 'innocenti-openlock';
+import { SETTINGS } from './settings.js';
 export class GMActions {
     constructor(data = {}) {
         this.data = data;
@@ -7,19 +7,33 @@ export class GMActions {
         this.actor = game.actors.entities.find(a => a.id === this.token.actor.id);
     }
 
-    async Init(token, targetToken, actor, data) {
-        await this.SetPermission(targetToken.actor, data);
-        await this.TriggerTrap(token, targetToken, data);
-        await this.RemoveItem(actor, data.tool.have, data);
-        await this.SetFlags(targetToken, actor.id, data);
+    async Init() {
+        console.log("Entrou aqui");
+        
+        if (this.data.door.have) {
+            await this.ShowDoor();
+            await this.OpenDoor();
+        } else {
+            await this.SetPermission();
+        }        
+        await this.TriggerTrap();
+        if (this.data.tool.have && this.data.tool.broke) {
+            await this.RemoveItem(this.token, this.data.tool.have);
+            this.data.tool.have = false;
+            this.data.tool.broke = false;
+        }
+        if (game.settings.get(SETTINGS.MODULE_NAME, "removeLock") && this.data.lock.have && (this.data.lock.broke || this.data.lock.disarm)) {
+            await this.RemoveItem(this.targetToken, this.data.lock.have);
+        }
+        await this.SetFlags();
     }
 
     async SetFlags() {
-        await this.targetToken.setFlag(MODULE_NAME, this.actor.id, this.data);
+        //await this.targetToken.setFlag(SETTINGS.MODULE_NAME, this.actor.id, this.data);
         console.log("SALVANDO FLAGS...", this.data);
     }
 
-    async SetPermission() {        
+    async SetPermission() {
         let entityTarget = await game.actors.entities.find(a => a.id === this.targetToken.actor.id);
         this.perm = entityTarget.data.permission;
         // Se já tenho permissão não preciso testar nada.
@@ -57,12 +71,32 @@ export class GMActions {
 
     async RemoveItem(token, itemid) {
         let itemtools = token.actor.items.get(itemid);
-            let itemEb = token.actor.getEmbeddedEntity("OwnedItem", itemtools.id);
-            if (itemEb.data.quantity - 1 >= 1) {
-                let update = { _id: itemtools.id, "data.quantity": itemEb.data.quantity - 1 };
-                await token.actor.updateEmbeddedEntity("OwnedItem", update);
-            } else {
-                await itemtools.delete();
+        let itemEb = token.actor.getEmbeddedEntity("OwnedItem", itemtools.id);
+        if (itemEb.data.quantity - 1 >= 1) {
+            let update = { _id: itemtools.id, "data.quantity": itemEb.data.quantity - 1 };
+            await token.actor.updateEmbeddedEntity("OwnedItem", update);
+        } else {
+            await itemtools.delete();
+        }
+    }
+
+    async ShowDoor() {
+        if (!this.data.door.have || !this.data.door.found) return;
+        let door = canvas.walls.get(this.data.door.have);
+        if (this.data.door.found && door.data.door == 2) {
+            this.data.door.secret = 1;
+            await door.update({ door: 1 });
+        }            
+    }
+
+    async OpenDoor() {
+        if (!this.data.lock.have || this.data.keys.have || this.data.lock.disarm || this.data.lock.broke) {
+            let door = canvas.walls.get(this.data.door.have);
+            if (this.data.door.found && door.data.door != 2) {
+                let ds = (this.data.door.locked == 2) ? 1 : this.data.door.locked;
+                ds = (this.data.lock.broke) ? 1 : ds;
+                await door.update({ ds: ds });
             }
+        }
     }
 }

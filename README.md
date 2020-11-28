@@ -42,8 +42,17 @@ the module basically works looking for a feat that has the open lock option enab
 <img src="https://github.com/rinnocenti/innocenti-openlock/blob/main/imgs/readme02.png" width="70%" height="70%">
 If you have a lock trap, set the damage and the actions in this item in detail tab. If you select an **Action Type** it will recognize this trapped lock, if empty it will consider that there are no traps.
 
+## How to Use - For Doors
+It works the same way as looting, but ideally, use a transparent actor next to the door so that the player can use it as a target.
+when unlocking a lock if the coordinate door is locked, it will open automatically.
+
+If using thieves' tools, the door goes from locked to closed. If you use force, the door goes directly to the open state.
+
 #### Enable Lock/Trap 
 feat to function as locks need to activate the module on the item.
+
+#### Wall Coordenates
+Enter the number of the door coordinates, see the door coordinates field in the wall layer (something like 1100,1200,1000,1100), if any coordinate (or other text) is entered here, the system will recognize it as a door instead of a loot.
 
 #### Item Key Name 
 if you want this lock to have a key, fill with the **exact** name of the item you want to use as a key for that lock.
@@ -56,6 +65,7 @@ the value for the difficulty class to find the trap in close distance, the playe
 
 #### Passive Find Trap DC 
 the value for the difficulty class to find the trap in distance, will be tested against the passive perception, if it is not successful a test of the perception or investigation skill will be requested.
+Passive perception serves to locate secret doors, verify that the player has the right key, and / or display the name and image of the correct key.
 
 #### Force Lock DC 
 the value for the difficulty class to force open the lock, the player will make a strength test against this value to open the lock. The lock will only be broken if the player passes the CD + Threshold test.
@@ -75,7 +85,6 @@ macro1 - FIND TRAP
 
 macro2 - OPEN CHEST
 `let actions = new InnocentiOpenLock.Actions('OpenLock');`
-<<<<<<< HEAD
 
 Advanced: you can also separate the workflow into individual macros, just change the name of the actions in parentheses.
 `'Breaklock', 'Picklock', 'DisarmTraps'`
@@ -94,6 +103,8 @@ if you succeed in any of the perception tests the option to "disarm the trap" wi
 
 A chat card will be created with the results, including the indication if player has the key (if the lock has one, the player has the correct one and passed the perception test for looking for).
 
+Update: Now whenever an attempt to search for a lock is made, a roll will be requested, even if it does not have a lock, so that the player does not know on the first attempt that there is not a lock.
+
 ### Macro 2: Open Chest
 * Makes an attempt to open the chest.
 * If the player has permission for that chest or has the key to it, the chest will be opened immediately. Otherwise, a dialog will be displayed for ways to open the chest, using stranght check or using thieves'tools(player need to have in your inventary).
@@ -103,7 +114,7 @@ A chat card will be created with the results, including the indication if player
 * A trap is considered disarmed when the "Action Type" field of the lock is empty, otherwise it is considered an active trap.
 
 ## Future Features
-* Expand to Close doors.
+* More accurate chat messages to identify successes in opening locks.
 
 ## Support
 If you like this module and would like to help or found a bug or request new features call me on discord @Innocenti#1455 or create a issue here.

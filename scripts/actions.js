@@ -25,13 +25,12 @@ export class ActionLock {
             let actions = eval(behaviors);
             let action = new actions(targetToken, this.token);
             await action.RealCheck();
-            await action.ModelData();            
+            await action.ModelData();
             if (game.modules.get('dice-so-nice')?.active && action.roll) {
                 Hooks.on('diceSoNiceRollComplete', (messageId) => {
                     if (!this.msg) {
                         action.ModelDialog();
                         this.msg = messageId;
-                        console.log("DICESONICE:", messageId);
                         action.ModelChatMessager();
                     }
                 });
@@ -39,8 +38,12 @@ export class ActionLock {
                 await action.ModelDialog();
                 await action.ModelChatMessager();
             }
-            if(!action.denied)
-            await game.socket.emit(`module.${SETTINGS.MODULE_NAME}`, action.options);
+            if (!action.denied && !game.user.isGM)
+                await game.socket.emit(`module.${SETTINGS.MODULE_NAME}`, action.options);
+            else if (!action.denied && game.user.isGM) {
+                let gmaction = new GMActions(action.options);
+                await gmaction.Init();
+            }
             console.log("Depois do GM", action);
         }
     }

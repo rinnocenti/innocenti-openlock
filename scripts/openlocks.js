@@ -11,6 +11,7 @@ export class OpenLocks {
         this.openLock = parseInt(this.data.openLock);
         this.keylock = this.data.keylock;
         this.toolsBreak = parseInt(this.data.toolsBreak);
+        this.wallCoord = this.data.wallCoord;
     }
 
     defaultData() {
@@ -24,6 +25,7 @@ export class OpenLocks {
             openLock: 10,
             toolsBreak: 5,
             keylock: '',
+            wallCoord:''
         }
     }
     toggleEnabled(enabled) {

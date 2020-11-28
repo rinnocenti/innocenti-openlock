@@ -10,8 +10,12 @@
             <input type="text" name="flags.innocenti-openlock.keylock" value="{{keylock}}">
         </div>
         <div class="form-group">
+            <label>{{localize "OpenLock.ItemLabel.wallCoord"}}</label>
+            <input type="text" name="flags.innocenti-openlock.wallCoord" value="{{wallCoord}}">
+        </div>
+        <div class="form-group">
             <label>{{localize "OpenLock.ItemLabel.disarmTrapDC"}}</label>
-            <input type="text" name="flags.innocenti-openlock.disarmTrap" value="{{passive}}" data-dtype="Number">
+            <input type="text" name="flags.innocenti-openlock.disarmTrap" value="{{disarmTrap}}" data-dtype="Number">
         </div>
         <div class="form-group input-select">
             <label>{{localize "OpenLock.ItemLabel.findTrapDC"}}</label>
@@ -25,7 +29,7 @@
         </div>
         <div class="form-group input-select">
             <label>{{localize "OpenLock.ItemLabel.passiveDC"}}</label>
-            <input type="text" name="flags.innocenti-openlock.passive" value="{{disarmTrap}}" data-dtype="Number">
+            <input type="text" name="flags.innocenti-openlock.passive" value="{{passive}}" data-dtype="Number">
         </div>
         <div class="form-group">
             <label>{{localize "OpenLock.ItemLabel.forceLockDC"}}</label>

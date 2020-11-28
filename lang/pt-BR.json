@@ -49,7 +49,8 @@
     "ToolOpen": "Abriu a trava: ",
     "BreakTools": "Com o mau uso da ferramenta de ladrão ela quebrou!",
     "NeedKey": "Precisa de Chave: ",
-    "HavePermission": "{token} possui permissão"
+    "HavePermission": "{token} possui permissão",
+    "Door": "Porta: "
   },
   "OpenLock.ItemLabel": {
     "disarmTrapDC": "Disarmar Armadilhas CD",
@@ -63,7 +64,8 @@
     "resetTrap": "Reiniciar Armadilha",
     "keylock": "Nome do Item Chave",
     "SheetEnabled": "Habilitar Tranca/Armadilha",
-    "OpenTitle": "Abrir Baús"
+    "OpenTitle": "Abrir Baús",
+    "wallCoord": "Coordenadas da Parede"
   },
   "OpenLock.Errors": {
     "noSelect": "Selecione um Token",

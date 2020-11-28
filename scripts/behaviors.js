@@ -8,14 +8,21 @@ export class Behaviors {
         this.target = target;
         this.roll = false;
         this.denied = false;
+        //console.log(lock);
         this.options = {
             userid: game.user.id,
             tokenid: token.id,
             targetid: target.id,
             trap: { found: false, have: this.lock.trap || false, disarm: false, trigger: false, attempts: 0 },
-            keys: { found: false, have: this.lock.keylock?.id || false },
+            keys: { found: false, have: this.lock.keylock?.id || false, name: this.lock.keylock?.name || this.lock.keylock || false },
             lock: { found: false, have: this.lock.lock?.id || false, disarm: false, broke: false, attempts: 0 },
             tool: { have: this.lock.tools?.id || false, broke: false },
+            door: {
+                found: false,
+                have: lock.door?.id || false,
+                locked: lock.door?.data?.ds || false,
+                secret: lock.door?.data?.door || 0
+            },
             action: '',
             attemptsChecks: 0
         };
@@ -33,6 +40,7 @@ export class Behaviors {
             this.options.keys = flags.keys;
             this.options.lock = flags.lock;
             this.options.attemptsChecks = flags.attemptsChecks;
+            this.options.door = flags.door;
         }
     }
     async RealCheck() { }
@@ -50,7 +58,8 @@ export class Behaviors {
             },
             keys: {
                 found: this.options.keys.found,
-                have: this.lock.keylock?.id || false
+                have: this.lock?.keylock?.id || false,
+                name: this.lock?.keylock?.name || this.lock?.keylock || false,
             },
             lock: {
                 found: this.options.lock.found,
@@ -62,6 +71,12 @@ export class Behaviors {
             tool: {
                 have: this.lock.tools?.id || false,
                 broke: this.options.tool.broke || false
+            },
+            door: {
+                have: this.lock.door?.id || false,
+                found: this.options.door?.found || false,
+                locked: this.options.door?.locked || false,
+                secret: this.options.door?.secret || 1
             },
             attemptsChecks: this.options.attemptsChecks,
             action: this.options['action'],
@@ -117,9 +132,10 @@ export class LootLock {
         this.tools = this.GetTools(charToken);
         if (this.lock) {
             this.settings = this.lock.data.flags[SETTINGS.MODULE_NAME];
-            //console.log('LOCKS', this)
             this.keylock = this.GetLockKey(charToken, this.settings.keylock);
             this.trap = this.GetTrap(this.lock);
+            this.door = this.GetDoors(this.settings.wallCoord);
+            console.log('LOCKS', this)
         }
     }
 
@@ -133,5 +149,9 @@ export class LootLock {
 
     GetTools(charToken) {
         return charToken.actor.items.find(a => a.name === SETTINGS.THIEVESTOOLS || a.name === game.i18n.localize('OpenLock.Msg.ThievesTools') || a.name === game.settings.get(SETTINGS.MODULE_NAME, "nameThievesTool"));
+    }
+
+    GetDoors(wallcoord) {
+        return canvas.walls.doors.find(wall => wall.coords.join(',') == wallcoord);
     }
 }

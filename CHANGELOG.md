@@ -1,4 +1,9 @@
-# v0.2.0
+# v0.3.0
+* Open Locks In Door - use a transparent actor for it.
+* Now even if there is no lock a perception check will be asked, if there is no lock the check always fails.
+* Others fix in find lock.
+
+# v0.2.01
 * Restructuring of the source code [RECOMMENDED EDITING THE LOCKS]
 * Now separate the Check, Disarm and Open Loot macros [NEW MACROS - MANDATORY UPDATE]
 * Find traps now has 2 checks with different CDs (passive and active)

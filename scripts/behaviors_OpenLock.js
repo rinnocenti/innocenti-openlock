@@ -7,15 +7,13 @@ export class OpenLock extends Behaviors {
         super(lock, target, token);
         this.options.action = 'OpenLock';
         this.Check();
-        //console.log(this);
     }
     async OpenLock() {
         console.log("tentativa de abrir");
+        if (this.lock.door) return;
         if (this.lock.lock?.id === undefined || this.lock.keylock?.id !== undefined || this.options.lock.broke || this.options.lock.disarm) {
             await setTimeout(this.target._onClickLeft2(), 3000);
         }
-        
-        //this.denied = true;
     }
     async Check(distclose = false) {
         super.Check(this.target, this.token, distclose);
@@ -23,25 +21,13 @@ export class OpenLock extends Behaviors {
     async RealCheck() {
         if (!this.denied) {
             if (this.lock.lock?.id === undefined || this.lock.keylock?.id !== undefined) {
-
                 this.options.lock.disarm = true;
-
-                //this.denied = true;
                 return;
             }
-            if (this.options.lock.broke || this.options.lock.disarm) {
-                //this.OpenLock();
-                //this.denied = true;
-                return;
-            }
+            if (this.options.lock.broke || this.options.lock.disarm) return;
             if (!game.user.isGM) {
                 let permission = await this.CheckPermission(this.target);
-                if (permission) {
-
-                    //this.denied = true;
-                    //this.OpenLock();
-                    return;
-                }
+                if (permission) return;
             }
         }
     }

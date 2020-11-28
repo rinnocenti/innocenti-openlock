@@ -1,6 +1,6 @@
-
+If you liked my projects, please consider giving me a coffee [Ko-fi](https://ko-fi.com/D1D02SYZA)
 ![GitHub All Releases](https://img.shields.io/github/downloads/rinnocenti/innocenti-openlock/total)
-![GitHub Releases](https://img.shields.io/github/downloads/rinnocenti/innocenti-openlock/v0.1.2/total)
+![GitHub Releases](https://img.shields.io/github/downloads/rinnocenti/innocenti-openlock/main/total)
 # Innocenti OpenLock
 A simple module to use loot actors and it will be possible to configure traps and locks.
 It was created for testing and learning purposes with foundry vtt

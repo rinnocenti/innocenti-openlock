@@ -44,7 +44,7 @@ export class ActionLock {
                 let gmaction = new GMActions(action.options);
                 await gmaction.Init();
             }
-            console.log("Depois do GM", action);
+            //console.log("Depois do GM", action);
         }
     }
 

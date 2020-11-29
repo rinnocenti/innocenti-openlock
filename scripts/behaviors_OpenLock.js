@@ -9,7 +9,7 @@ export class OpenLock extends Behaviors {
         this.Check();
     }
     async OpenLock() {
-        console.log("tentativa de abrir");
+        //console.log("tentativa de abrir");
         if (this.lock.door) return;
         if (this.lock.lock?.id === undefined || this.lock.keylock?.id !== undefined || this.options.lock.broke || this.options.lock.disarm) {
             await setTimeout(this.target._onClickLeft2(), 3000);

@@ -53,7 +53,7 @@ export class FindLockTrap extends Behaviors {
                     this.options.trap.found = (this.lock.trap) ? true : false;
             });
         }
-        console.log("Segue adiante", this.options);
+        //console.log("Segue adiante", this.options);
     }
 
     async ModelDialog() { }

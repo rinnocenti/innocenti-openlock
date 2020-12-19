@@ -79,6 +79,7 @@ export class GMActions {
     async ShowDoor() {
         if (!this.data.door.have || !this.data.door.found) return;
         let door = canvas.walls.get(this.data.door.have);
+        if (!door) return;
         if (this.data.door.found && door.data.door == 2) {
             this.data.door.secret = 1;
             await door.update({ door: 1 });
@@ -88,6 +89,7 @@ export class GMActions {
     async OpenDoor() {
         if (!this.data.lock.have || this.data.keys.have || this.data.lock.disarm || this.data.lock.broke) {
             let door = canvas.walls.get(this.data.door.have);
+            if (!door) return;
             if ((this.data.door.found && door.data.door == 2) || door.data.door != 2) {
                 let ds = (this.data.door.locked == 2) ? 1 : this.data.door.locked;
                 ds = (this.data.lock.broke) ? 1 : ds;

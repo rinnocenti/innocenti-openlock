@@ -1,0 +1,80 @@
+{
+  "OpenLock.Settings": {
+    "ThievesTool": "Outils de voleur",
+    "ThievesToolTitle": "Outils de voleur: ",
+    "ThievesToolHint": "Nom de l'objet représentant les Outils de voleur",
+    "removeLock": "Dévérouiller",
+    "removeLockHint": "S'il est activé, chaque fois que le coffre est ouvert, l'élément de verrouillage sera retiré des objets du coffre.",
+    "perceptionDistance": "Distance maximum pour la Perception (en casses)",
+    "perceptionDistanceHint": "La distance maximale sur la grille pour que l'action de perception soit effectuer",
+    "interactDistance": "Distance maximum pour interagir (en casses)",
+    "interactDistanceHint": "Distance maximum pour que les joueurs interagissent avec la serrure en nombre de casses",
+    "repeatCheck": "Répéter le Check",
+    "repeatCheckHint": "S'il est activé, les joueurs seront capable de répéter le Check pour le même butin"
+  },
+
+  "OpenLock.Btn": {
+    "BreakLock": "Serrure cassé",
+    "PickLock": "Crocheter",
+    "DontTouch": "Ne touchez pas à cela",
+    "OpenChest": "Ouvert",
+    "DisarmTrap": "Piège non défini"
+  },
+
+  "OpenLock.MsgDialog": {
+    "TrapAlert": "Danger !! Piège détecté!",
+    "HaveKey": "Tu possèdes la clef pour ce coffre",
+    "HasLock": "Le coffre est verrouillé",
+    "Title": "Ouvrir coffre",
+    "TitleCheck": "Contrôle des pièges",
+    "Content": "Le coffre est verrouillé, comment veux-tu l'ouvrir ?",
+    "ContentCheck": "Quand tu trouves un coffre, que veux-tu faire ?",
+    "ConsumableLock": "Verrouillé",
+    "TrapDisarm": "Le piège a été correctement désamorcé!"
+  },
+  "OpenLock.MsgChat": {
+    "Used": "Utilisé: ",
+    "Loot": "Ouvert: ",
+    "SearchTitle": "Contrôler le contenu",
+    "TitleDisarm": "Désamorcer les pièges",
+    "TrapDisarm": "Piège désamorcé: ",
+    "OpenTitle": "Ouvrir le coffre",
+    "NotLock": "Cet objet n'a pas de dispositif de verrouillage",
+    "hasLock": "Verrouillé: ",
+    "Yes": "Oui",
+    "No": "Non",
+    "Dontfound": "Pas trouvé",
+    "haveKey": "Possèder la clef: ",
+    "haveTrap": "Piège: ",
+    "StranghtOpen": "Casser la serrure: ",
+    "TrapOnOpen": "Piège activé!",
+    "ToolOpen": "Crocheter la serrure: ",
+    "BreakTools": "Mauvaises manipulation, les outils de voleurs sont cassés!",
+    "NeedKey": "Besoin de la clef : ",
+    "HavePermission": "{token} a la permission",
+    "Door": "Porte: "
+  },
+  "OpenLock.ItemLabel": {
+    "disarmTrapDC": "Désamorcer piège DC",
+    "passiveDC": "Cherche passivement DC",
+    "findTrapDC": "Chercher un piège DC",
+    "Perception": "Perception",
+    "Investigation": "Investigation",
+    "forceLockDC": "Forcer la serrure DC",
+    "openLockDC": "Crocheter DC",
+    "toolsBreak": "Seuil de rupture des Outils de voleur",
+    "resetTrap": "Réinitialiser le piège",
+    "keylock": "Nom de la clef",
+    "SheetEnabled": "Activer Verrou/piège",
+    "OpenTitle": "Coffre à ouvrir",
+    "wallCoord": "Coordonner des murs"
+  },
+  "OpenLock.Errors": {
+    "noSelect": "Selectionné un Token",
+    "noToken": "Aucun Token n'a été ciblé",
+    "novalidLoot": " pas un butin valide",
+    "invalidDistance": "La distance maximum pour interagir est de : {dist} casses",
+    "invalidCheck": "{token} ne peut pas vérifier le même butin plus d'une fois (regarde la dernière vérification)",
+    "notHaveTools": "Tu ne possèdes pas le {tools}"
+  }
+}

@@ -1,3 +1,7 @@
+# v0.3.1
+* New translate Franch (tanks to Elfenduil)
+* Bug fixes
+
 # v0.3.0
 * Open Locks In Door - use a transparent actor for it.
 * Now even if there is no lock a perception check will be asked, if there is no lock the check always fails.

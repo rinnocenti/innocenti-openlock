@@ -119,5 +119,12 @@ Update: Now whenever an attempt to search for a lock is made, a roll will be req
 ## Support
 If you like this module and would like to help or found a bug or request new features call me on discord @Innocenti#1455 or create a issue here.
 
+### Troubleshooting
+If you do all the steps and are unable to activate thives' tools (no rolls happens).
+
+Check the spelling of the name Thivies's tools.
+In some cases the apostrophe used in the name of the compendium is different, some use `'` others use `’` depending on the font used in the layout, the two may look identical. The SRD use `’` which is the default.
+In any case, copy and paste exactly the text of your item (ctrl + c and ctrl + v) in module settings.
+
 ## License
 This Foundry VTT module, writen by Innocenti, is licensed under a Creative Commons Attribution 4.0 International License.

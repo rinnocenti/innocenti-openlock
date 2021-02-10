@@ -1,11 +1,17 @@
 {
   "name": "innocenti-openlock",
   "title": "Innocenti Open Lock",
-  "description": "<p>Modules for opening locks using keys, force or picklock</p>",
-  "author": "Renato innocenti",
-  "version": "0.3.2",
+  "description": "Modules for opening locks using keys, force or picklock",
+  "version": "0.3.3",
   "minimumCoreVersion": "0.7.0",
   "compatibleCoreVersion": "0.7.9",
+  "author": "Renato innocenti",
+  "authors": [
+    {
+      "name": "Innocenti",
+      "discord": "Innocenti#1455"
+    }
+  ],
   "systems": [ "dnd5e" ],
   "esmodules": [ "main.js", "scripts/settings.js" ],
   "scripts": [],
@@ -39,14 +45,37 @@
     },
     {
       "lang": "fr",
-      "name": "French (FRANCE)",
+      "name": "French (France)",
       "path": "lang/fr.json"
     }
   ],
+  "media": [
+    {
+      "type": "cover",
+      "link": "https://github.com/rinnocenti/innocenti-openlock/raw/main/imgs/cover.jpg"
+    },
+    {
+      "type": "video",
+      "link": "https://www.youtube.com/watch?v=0UXyk2e2zy0"
+    },
+    {
+      "type": "screenshot",
+      "link": "https://github.com/rinnocenti/innocenti-openlock/raw/main/imgs/readme01.png"
+    },
+    {
+      "type": "screenshot",
+      "link": "https://github.com/rinnocenti/innocenti-openlock/raw/main/imgs/readme04.png"
+    },
+    {
+      "type": "screenshot",
+      "link": "https://github.com/rinnocenti/innocenti-openlock/raw/main/imgs/readme02.png"
+    },
+    {
+      "type": "screenshot",
+      "link": "https://github.com/rinnocenti/innocenti-openlock/raw/main/imgs/readme03.png"
+    }
+  ],
   "socket": true,
-  "url": "https://github.com/rinnocenti/innocenti-openlock",
-  "manifest": "https://raw.githubusercontent.com/rinnocenti/innocenti-openlock/main/module.json",
-  "download": "https://github.com/rinnocenti/innocenti-openlock/archive/main.zip",
   "packs": [
     {
       "name": "openlock-macros",
@@ -55,5 +84,10 @@
       "module": "innocenti-openlock",
       "entity": "Macro"
     }
-  ]
+  ],
+  "url": "https://github.com/rinnocenti/innocenti-openlock",
+  "manifest": "https://raw.githubusercontent.com/rinnocenti/innocenti-openlock/main/module.json",
+  "download": "https://github.com/rinnocenti/innocenti-openlock/archive/main.zip",
+  "bugs": "https://github.com/rinnocenti/innocenti-openlock/issues",
+  "readme": "https://github.com/rinnocenti/innocenti-openlock/blob/main/README.md"
 }

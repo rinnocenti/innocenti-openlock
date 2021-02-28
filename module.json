@@ -2,7 +2,7 @@
   "name": "innocenti-openlock",
   "title": "Innocenti Open Lock",
   "description": "Modules for opening locks using keys, force or picklock",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "minimumCoreVersion": "0.7.0",
   "compatibleCoreVersion": "0.7.9",
   "author": "Renato innocenti",

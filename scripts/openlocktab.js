@@ -28,29 +28,33 @@ export class OpenLockTab {
 
     init(html) {
 
-        this.openlock = new OpenLocks(this.item.data.flags['innocenti-openlock']); 
-
         if (html[0].localName !== "div") {
-            this.html = $(html[0].parentElement.parentElement);
-        } else {
-            this.html = html;
+            html = $(html[0].parentElement.parentElement);
         }
 
-        let tabs = this.html.find(`form nav.sheet-navigation.tabs`);
+        let tabs = html.find(`form nav.sheet-navigation.tabs`);
+        if (tabs.find('a[data-tab=innocenti-openlock]').length > 0) {
+            return; // already initialized, duplication bug!
+        }
+
         tabs.append($(
             '<a class="item" data-tab="innocenti-openlock">Open Lock</a>'
         ));
 
-        $(this.html.find(`.sheet-body`)).append($(
+        $(html.find(`.sheet-body`)).append($(
             '<div class="tab open-lock" data-group="primary" data-tab="innocenti-openlock"></div>'
         ));
+
+        this.html = html;
+
+        this.openlock = new OpenLocks(this.item.data.flags['innocenti-openlock']); 
+
         this.render();
     }
-
     hack(app) {
-        app.setPosition = function(position={}) {
-            position.height = this._sheetTab === "details" || "openlock" ? "auto" : this.options.height;
-            position.width = 600;
+        let tab = this;
+        app.setPosition = function (position = {}) {
+            position.height = tab.isActive() && !position.height ? "auto" : position.height;
             return this.__proto__.__proto__.setPosition.apply(this, [position])
         };
     }

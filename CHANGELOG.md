@@ -1,3 +1,12 @@
+# v0.3.4
+* Bug fixes (transform windows)
+
+# v0.3.3
+* Bug fixes (Traps)
+
+# v0.3.2
+* Bug fixes (text)
+
 # v0.3.1
 * New translate Franch (tanks to Elfenduil)
 * Bug fixes

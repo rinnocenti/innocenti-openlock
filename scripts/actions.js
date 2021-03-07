@@ -44,6 +44,7 @@ export class ActionLock {
                 let gmaction = new GMActions(action.options);
                 await gmaction.Init();
             }
+            await action.OpenLock();
             //console.log("Depois do GM", action);
         }
     }

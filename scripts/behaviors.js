@@ -81,7 +81,7 @@ export class Behaviors {
             attemptsChecks: this.options.attemptsChecks,
             action: this.options['action'],
         }
-        console.log("DATA", this.options);
+        //console.log("DATA", this.options);
     }
 
     async ModelChatMessager(title, content) {
@@ -135,7 +135,7 @@ export class LootLock {
             this.keylock = this.GetLockKey(charToken, this.settings.keylock);
             this.trap = this.GetTrap(this.lock);
             this.door = this.GetDoors(this.settings.wallCoord);
-            console.log('LOCKS', this)
+            //console.log('LOCKS', this)
         }
     }
 

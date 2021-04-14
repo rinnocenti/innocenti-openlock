@@ -128,14 +128,19 @@ export class Behaviors {
 }
 export class LootLock {
     constructor(lootToken, charToken) {
-        this.lock = lootToken.actor.items.find(a => a.data.flags[SETTINGS.MODULE_NAME]);
         this.tools = this.GetTools(charToken);
-        if (this.lock) {
-            this.settings = this.lock.data.flags[SETTINGS.MODULE_NAME];
-            this.keylock = this.GetLockKey(charToken, this.settings.keylock);
-            this.trap = this.GetTrap(this.lock);
-            this.door = this.GetDoors(this.settings.wallCoord);
-            //console.log('LOCKS', this)
+        let hasFlag = lootToken.actor.items.getFlag(SETTINGS.MODULE_NAME, 'enable');
+        if (hasFlag) {
+            this.lock = lootToken.actor.items.find(a => a.data.flags[SETTINGS.MODULE_NAME]);
+            if (this.lock) {
+                this.settings = this.lock.data.flags[SETTINGS.MODULE_NAME];
+                this.keylock = this.GetLockKey(charToken, this.settings.keylock);
+                this.trap = this.GetTrap(this.lock);
+                this.door = this.GetDoors(this.settings.wallCoord);
+                //console.log('LOCKS', this)
+            }
+        } else {
+            this.lock = false;
         }
     }
 

@@ -129,7 +129,7 @@ export class Behaviors {
 export class LootLock {
     constructor(lootToken, charToken) {
         this.tools = this.GetTools(charToken);
-        let hasFlag = lootToken.actor.items.getFlag(SETTINGS.MODULE_NAME, 'enable');
+        let hasFlag = lootToken.actor.items.find(a => a.data.flags[SETTINGS.MODULE_NAME]);
         if (hasFlag) {
             this.lock = lootToken.actor.items.find(a => a.data.flags[SETTINGS.MODULE_NAME]);
             if (this.lock) {

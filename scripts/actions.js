@@ -44,8 +44,11 @@ export class ActionLock {
                 let gmaction = new GMActions(action.options);
                 await gmaction.Init();
             }
-            await action.OpenLock();
+            if (typeof action?.OpenLock === "function") {
+                // safe to use the function
+                await action?.OpenLock();
             //console.log("Depois do GM", action);
+            }            
         }
     }
 

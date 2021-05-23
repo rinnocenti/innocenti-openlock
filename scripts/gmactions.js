@@ -4,7 +4,7 @@ export class GMActions {
         this.data = data;
         this.targetToken = canvas.tokens.get(data.targetid);
         this.token = canvas.tokens.get(data.tokenid);
-        this.actor = game.actors.entities.find(a => a.id === this.token.actor.id);
+        this.actor = game.actors.contents.find(a => a.id === this.token.actor.id);
     }
 
     async Init() {
@@ -24,12 +24,13 @@ export class GMActions {
     }
 
     async SetFlags() {
-        await this.targetToken.setFlag(SETTINGS.MODULE_NAME, this.actor.id, this.data);
+        console.log(this.targetToken, "target");
+        await this.targetToken.document.setFlag(SETTINGS.MODULE_NAME, this.actor.id, this.data);
         console.log("SALVANDO FLAGS...", this.data);
     }
 
     async SetPermission() {
-        let entityTarget = await game.actors.entities.find(a => a.id === this.targetToken.actor.id);
+        let entityTarget = await game.actors.contents.find(a => a.id === this.targetToken.actor.id);
         this.perm = entityTarget.data.permission;
         // Se já tenho permissão não preciso testar nada.
         if (this.data.door.have) return;
@@ -80,9 +81,9 @@ export class GMActions {
         if (!this.data.door.have || !this.data.door.found) return;
         let door = canvas.walls.get(this.data.door.have);
         if (!door) return;
-        if (this.data.door.found && door.data.door == 2) {
-            this.data.door.secret = 1;
-            await door.update({ door: 1 });
+        if (this.data.door.found && door.data.door == CONST.WALL_DOOR_TYPES.SECRET) {
+            this.data.door.secret = CONST.WALL_DOOR_TYPES.DOOR;
+            await door.update({ door: CONST.WALL_DOOR_TYPES.DOOR });
         }
     }
 
@@ -90,10 +91,11 @@ export class GMActions {
         if (!this.data.lock.have || this.data.keys.have || this.data.lock.disarm || this.data.lock.broke) {
             let door = canvas.walls.get(this.data.door.have);
             if (!door) return;
-            if ((this.data.door.found && door.data.door == 2) || door.data.door != 2) {
-                let ds = (this.data.door.locked == 2) ? 1 : this.data.door.locked;
-                ds = (this.data.lock.broke) ? 1 : ds;
-                await door.update({ ds: ds });
+            if ((this.data.door.found && door.data.door == CONST.WALL_DOOR_TYPES.SECRET) || door.data.door != CONST.WALL_DOOR_TYPES.SECRET) {
+                let ds = (this.data.door.locked == CONST.WALL_DOOR_STATES.LOCKED) ? CONST.WALL_DOOR_STATES.OPEN : CONST.WALL_DOOR_STATES.CLOSED//this.data.door.locked;
+                ds = (this.data.lock.broke) ? CONST.WALL_DOOR_STATES.OPEN : ds;
+                console.log(door, "DOOR")
+                await door.document.update({ ds: ds });
             }
         }
     }

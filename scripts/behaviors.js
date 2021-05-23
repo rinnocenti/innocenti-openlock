@@ -30,7 +30,7 @@ export class Behaviors {
 
     Check(target, token, distclose = false) {
         let distance = this.CheckDistance(target, distclose);
-        let flags = target.getFlag(SETTINGS.MODULE_NAME, token.actor.id);
+        let flags = target.document.getFlag(SETTINGS.MODULE_NAME, token.actor.id);
         if (!distance) {
             this.denied = true;
         }

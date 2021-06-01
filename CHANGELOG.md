@@ -1,3 +1,10 @@
+
+#v.0.3.6
+* last Update for Foundry 0.7.X Series
+
+#v0.3.5
+* Bug Fixes: check valid lock
+
 # v0.3.4
 * Bug fixes (transform windows)
 

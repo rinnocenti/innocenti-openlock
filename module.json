@@ -4,12 +4,13 @@
   "description": "Modules for opening locks using keys, force or picklock",
   "version": "0.3.51",
   "minimumCoreVersion": "0.7.0",
-  "compatibleCoreVersion": "0.7.9",
+  "compatibleCoreVersion": "0.7.10",
   "author": "Renato innocenti",
   "authors": [
     {
       "name": "Innocenti",
-      "discord": "Innocenti#1455"
+      "discord": "Innocenti#1455",
+      "email": "renato.innocenti@gmail.com"
     }
   ],
   "systems": [ "dnd5e" ],
@@ -85,9 +86,9 @@
       "entity": "Macro"
     }
   ],
-  "url": "https://github.com/rinnocenti/innocenti-openlock",
-  "manifest": "https://raw.githubusercontent.com/rinnocenti/innocenti-openlock/main/module.json",
-  "download": "https://github.com/rinnocenti/innocenti-openlock/archive/main.zip",
+  "url": "https://github.com/rinnocenti/innocenti-openlock/tree/v.0.7.10",
+  "manifest": "https://raw.githubusercontent.com/rinnocenti/innocenti-openlock/v.0.7.10/module.json",
+  "download": "https://github.com/rinnocenti/innocenti-openlock/archive/refs/tags/0.3.51.zip",
   "bugs": "https://github.com/rinnocenti/innocenti-openlock/issues",
-  "readme": "https://github.com/rinnocenti/innocenti-openlock/blob/main/README.md"
+  "readme": "https://github.com/rinnocenti/innocenti-openlock/blob/v.0.7.10/README.md"
 }

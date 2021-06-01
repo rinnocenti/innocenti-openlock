@@ -2,14 +2,15 @@
   "name": "innocenti-openlock",
   "title": "Innocenti Open Lock",
   "description": "Modules for opening locks using keys, force or picklock",
-  "version": "0.3.51",
-  "minimumCoreVersion": "0.7.0",
-  "compatibleCoreVersion": "0.7.9",
+  "version": "0.4.01",
+  "minimumCoreVersion": "0.8.0",
+  "compatibleCoreVersion": "0.8.6",
   "author": "Renato innocenti",
   "authors": [
     {
       "name": "Innocenti",
-      "discord": "Innocenti#1455"
+      "discord": "Innocenti#1455",
+      "email": "renato.innocenti@gmail.com"
     }
   ],
   "systems": [ "dnd5e" ],
@@ -22,14 +23,6 @@
     {
       "name": "midi-qol",
       "manifest": "https://gitlab.com/tposney/midi-qol/raw/master/package/module.json"
-    },
-    {
-      "name": "furnace",
-      "manifest": "https://raw.githubusercontent.com/kakaroto/fvtt-module-furnace/master/module.json"
-    },
-    {
-      "name": "lootsheetnpc5e",
-      "manifest": "https://raw.githubusercontent.com/jopeek/fvtt-loot-sheet-npc-5e/master/module.json"
     }
   ],
   "languages": [

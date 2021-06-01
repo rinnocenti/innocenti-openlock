@@ -30,7 +30,7 @@ export class Behaviors {
 
     Check(target, token, distclose = false) {
         let distance = this.CheckDistance(target, distclose);
-        let flags = target.getFlag(SETTINGS.MODULE_NAME, token.actor.id);
+        let flags = target.document.getFlag(SETTINGS.MODULE_NAME, token.actor.id);
         if (!distance) {
             this.denied = true;
         }
@@ -153,7 +153,7 @@ export class LootLock {
     }
 
     GetTools(charToken) {
-        return charToken.actor.items.find(a => a.name === SETTINGS.THIEVESTOOLS || a.name === game.i18n.localize('OpenLock.Msg.ThievesTools') || a.name === game.settings.get(SETTINGS.MODULE_NAME, "nameThievesTool"));
+        return charToken.actor.items.find(a => a.name === SETTINGS.THIEVESTOOLS || a.name === game.i18n.localize('OpenLock.Msg.ThievesTools') || a.name === game.settings.get(SETTINGS.MODULE_NAME, "nameThievesTool") || a.name == 'Thieves\' Tools');
     }
 
     GetDoors(wallcoord) {

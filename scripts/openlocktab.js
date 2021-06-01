@@ -5,9 +5,9 @@ const openLockTab = [];
 export class OpenLockTab {
 
     static bind(app, html, data) {
-        let acceptedTypes = ['feat'];
+        let acceptedTypes = ['Feature'];
         //if (acceptedTypes.includes(data.entity.type) || data.entity.data.consumableType == 'lock') {
-        if (acceptedTypes.includes(data.entity.type)) {
+        if (acceptedTypes.includes(data.itemType)) {
             let tab = openLockTab[app.id];
             if(!tab) {
                 tab = new OpenLockTab(app);

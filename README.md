@@ -4,6 +4,10 @@
 
 A simple module to use loot actors and it will be possible to configure traps and locks.
 It was created for testing and learning purposes with foundry vtt
+
+** FOR FOUNDRY SRIES 0.7.X SEE THAT BRANCH: **
+`https://raw.githubusercontent.com/rinnocenti/innocenti-openlock/v.0.7.10/module.json`
+
 ## Installation
 You can install this module by using the following manifest URL : https://raw.githubusercontent.com/rinnocenti/innocenti-openlock/main/module.json
 

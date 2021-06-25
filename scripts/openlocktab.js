@@ -5,9 +5,8 @@ const openLockTab = [];
 export class OpenLockTab {
 
     static bind(app, html, data) {
-        let acceptedTypes = ['Feature', 'feat'];
-        //if (acceptedTypes.includes(data.entity.type) || data.entity.data.consumableType == 'lock') {
-        if (acceptedTypes.includes(data.document.type)){
+        let acceptedTypes = ['feat'];
+        if (acceptedTypes.includes(data.document.type)) {
             let tab = openLockTab[app.id];
             if(!tab) {
                 tab = new OpenLockTab(app);
@@ -47,7 +46,6 @@ export class OpenLockTab {
 
         this.html = html;
 
-
         this.openlock = new OpenLocks(this.item.data.flags['innocenti-openlock']); 
 
         this.render();
@@ -81,7 +79,7 @@ export class OpenLockTab {
 
         this.app.setPosition();
 
-        if (this.activate && !this.isActive()) {
+        if(this.activate) {
             this.app._tabs[0].activate("innocenti-openlock");
             this.activate = false;
         }
@@ -91,21 +89,10 @@ export class OpenLockTab {
         
         this.html.find('.open-lock-content input[type="text"]').change(evt => {
             this.activate = true;
-            this.render();
         });
-        this.html.find('input[name="flags.open-lock.enabled"]').click(evt => {
-            this.openlock.toggleEnabled(evt.target.checked);
-            this.render();
-        });
-
-        this.html.find('.open-lock-content select').change(evt => {
-            this.activate = true;
-            this.render();
-        });
-        
     }
 
     isActive() {
-        return $(this.html).find('a.item[data-tab="innocenti-openlock"]').hasClass("active");
+        return $('a.item[data-tab="innocenti-openlock"]').hasClass("active");
     }
 }

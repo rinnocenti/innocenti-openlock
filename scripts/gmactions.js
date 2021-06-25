@@ -51,16 +51,16 @@ export class GMActions {
             await new MidiQOL.TrapWorkflow(this.targetToken.actor, tokenitem, [this.token], this.targetToken.center);
             let updates = await this.targetToken.actor.items.map(itemup => {
                 if (itemup.name === tokenitem.name)
-                    return { _id: itemup.id, data: { actionType: "" } }
+                    return { id: itemup.id, data: { actionType: "" } }
                 else
-                    return { _id: itemup.id }
+                    return { id: itemup.id }
             });
             if (game.modules.get('dice-so-nice')?.active) {
                 Hooks.on('diceSoNiceRollComplete', (messageId) => {
-                    this.targetToken.actor.updateEmbeddedEntity("OwnedItem", updates);
+                    this.targetToken.actor.updateEmbeddedDocuments("Item", updates);
                 });
             } else {
-                await setTimeout(function () { this.targetToken.actor.updateEmbeddedEntity("OwnedItem", updates); }, 2000);
+                await setTimeout(function () { this.targetToken.actor.updateEmbeddedDocuments("Item", updates); }, 2000);
             }
             this.data.trap.trigger = false;
         }
@@ -68,10 +68,10 @@ export class GMActions {
 
     async RemoveItem(token, itemid) {
         let itemtools = token.actor.items.get(itemid);
-        let itemEb = token.actor.getEmbeddedEntity("OwnedItem", itemtools.id);
+        let itemEb = token.actor.updateEmbeddedDocuments("Item", [itemtools.id]);
         if (itemEb.data.quantity - 1 >= 1) {
-            let update = { _id: itemtools.id, "data.quantity": itemEb.data.quantity - 1 };
-            await token.actor.updateEmbeddedEntity("OwnedItem", update);
+            let update = { id: itemtools.id, "data.quantity": itemEb.data.quantity - 1 };
+            await token.actor.updateEmbeddedDocuments("Item", [update]);
         } else {
             await itemtools.delete();
         }

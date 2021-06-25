@@ -1,5 +1,10 @@
+# v0.4.2
+Fix for Localizations documents.
+Fix for Trap not detonate in 8.x.
+
 # v0.4.1
 Update dependecis
+
 # v0.4.0
 Bump for Foundry v0.8.5
 

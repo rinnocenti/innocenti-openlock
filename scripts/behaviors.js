@@ -118,8 +118,8 @@ export class Behaviors {
         return `<span ${color}>${(test) ? positive : negative}</span>`;
     }
     async CheckPermission(targetToken) {
-        let entityTarget = await game.actors.entities.find(a => a.id === targetToken.actor.id);
-        let perm = entityTarget.data.permission;
+        let contentTarget = await game.actors.contents.find(a => a.id === targetToken.actor.id);
+        let perm = contentTarget.data.permission;
         // Se já tenho permissão não preciso testar nada.
         if (perm[`${game.user.id}`] && perm[`${game.user.id}`] >= 2) return true
         //console.log("N�o tenho permissão");

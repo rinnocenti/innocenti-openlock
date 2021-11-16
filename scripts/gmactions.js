@@ -68,9 +68,9 @@ export class GMActions {
 
     async RemoveItem(token, itemid) {
         let itemtools = token.actor.items.get(itemid);
-        let itemEb = token.actor.updateEmbeddedDocuments("Item", [itemtools.id]);
-        if (itemEb.data.quantity - 1 >= 1) {
-            let update = { id: itemtools.id, "data.quantity": itemEb.data.quantity - 1 };
+        await token.actor.updateEmbeddedDocuments("Item", [{_id:itemtools.id}]);
+        if (itemtools.data.data.quantity - 1 >= 1) {
+            let update = { _id: itemtools.id, "data.quantity": itemtools.data.data.quantity - 1 };
             await token.actor.updateEmbeddedDocuments("Item", [update]);
         } else {
             await itemtools.delete();

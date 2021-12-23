@@ -1,3 +1,9 @@
+# v0.4.5
+Fix dor Lock tab
+Fix for v9
+This is the latest module update for v8 versions.
+new versions will have a complete refactoring.
+
 # v0.4.2
 Fix for Localizations documents.
 Fix for Trap not detonate in 8.x.

@@ -65,9 +65,10 @@
     "toolsBreak": "Threshold of Tools Break",
     "resetTrap": "Reset Trap",
     "keylock": "Item Key Name",
-    "SheetEnabled": "Enable Lock/Trap",
+    "sheetEnabled": "Enable Lock/Trap",
     "OpenTitle": "Open Chests",
-    "wallCoord":  "Wall Coordenates"
+    "wallCoord": "Wall Coordenates",
+    "tabOpenLock": "Set Lock"
   },
   "OpenLock.Errors": {
     "noSelect": "Select a token",

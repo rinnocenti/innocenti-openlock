@@ -12,6 +12,7 @@ export class OpenLocks {
         this.keylock = this.data.keylock;
         this.toolsBreak = parseInt(this.data.toolsBreak);
         this.wallCoord = this.data.wallCoord;
+        this.checkDisarmTrap = this.data.checkDisarmTrap;
     }
 
     defaultData() {
@@ -25,7 +26,8 @@ export class OpenLocks {
             openLock: 10,
             toolsBreak: 5,
             keylock: '',
-            wallCoord:''
+            wallCoord: '',
+            checkDisarmTrap: 'dex'
         }
     }
     toggleEnabled(enabled) {

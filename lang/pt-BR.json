@@ -63,9 +63,10 @@
     "toolsBreak": "Limite para Quebrar a Ferramenta",
     "resetTrap": "Reiniciar Armadilha",
     "keylock": "Nome do Item Chave",
-    "SheetEnabled": "Habilitar Tranca/Armadilha",
+    "sheetEnabled": "Habilitar Tranca/Armadilha",
     "OpenTitle": "Abrir Baús",
-    "wallCoord": "Coordenadas da Parede"
+    "wallCoord": "Coordenadas da Parede",
+    "tabOpenLock": "Config. Tranca"
   },
   "OpenLock.Errors": {
     "noSelect": "Selecione um Token",

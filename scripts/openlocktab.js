@@ -1,28 +1,26 @@
 import { OpenLocks } from "./openlocks.js";
+import { OptionsSkillFind, OptionsAbilityCheck } from "./systemAdapt.js";
 
 const openLockTab = [];
 
 export class OpenLockTab {
+    constructor(app) {
+        this.app = app;
+        this.item = app.item;
+        this.hack(this.app);
+        this.activate = false;
+    }
 
     static bind(app, html, data) {
         let acceptedTypes = ['feat'];
         if (acceptedTypes.includes(data.document.type)) {
             let tab = openLockTab[app.id];
-            if(!tab) {
+            if (!tab) {
                 tab = new OpenLockTab(app);
                 openLockTab[app.id] = tab;
             }
             tab.init(html, data);
         }
-    }
-
-    constructor(app) {
-        this.app = app;
-        this.item = app.item;
-
-        this.hack(this.app);
-
-        this.activate = false;
     }
 
     init(html) {
@@ -59,6 +57,14 @@ export class OpenLockTab {
     }
 
     async render() {
+        let findSkills = OptionsSkillFind(game.system.id);
+        findSkills.map(x => { if (x.key == this.openlock.skillfindTrap) x.selected = "selected" });
+        let disarmAbil = OptionsAbilityCheck(game.system.id);
+        disarmAbil.map(x => { if (x.key == this.openlock.checkDisarmTrap) x.selected = "selected" });
+        this.openlock.findSkills = findSkills;
+        this.openlock.disarmAbil = disarmAbil;
+
+
         let template = await renderTemplate('modules/innocenti-openlock/templates/open-lock-tab.html', this.openlock);
         let el = this.html.find(`.open-lock-content`);
         if(el.length) {
@@ -79,7 +85,7 @@ export class OpenLockTab {
 
         this.app.setPosition();
 
-        if(this.activate) {
+        if (this.activate && !this.isActive()) {
             this.app._tabs[0].activate("innocenti-openlock");
             this.activate = false;
         }
@@ -87,12 +93,22 @@ export class OpenLockTab {
 
     handleEvents() {
         
+        this.html.find('input[name="flags.innocenti-openlock.enabled"]').click(evt => {
+            this.openlock.toggleEnabled(evt.target.checked);
+            this.render();
+        });
         this.html.find('.open-lock-content input[type="text"]').change(evt => {
+            this.activate = true;
+        });
+        this.html.find('.open-lock-content select[name="flags.innocenti-openlock.checkDisarmTrap"]').change(evt => {
+            this.activate = true;
+        });
+        this.html.find('.open-lock-content select[name="flags.innocenti-openlock.skillfindTrap"]').change(evt => {
             this.activate = true;
         });
     }
 
     isActive() {
-        return $('a.item[data-tab="innocenti-openlock"]').hasClass("active");
+        return $(this.html).find('a.item[data-tab="innocenti-openlock"]').hasClass("active");
     }
 }

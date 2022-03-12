@@ -2,9 +2,6 @@
   "name": "innocenti-openlock",
   "title": "Innocenti Open Lock",
   "description": "Modules for opening locks using keys, force or picklock",
-  "version": "0.4.5",
-  "minimumCoreVersion": "0.8.0",
-  "compatibleCoreVersion": "9",
   "author": "Renato innocenti",
   "authors": [
     {
@@ -13,17 +10,20 @@
       "email": "renato.innocenti@gmail.com"
     }
   ],
-  "systems": [ "dnd5e" ],
-  "esmodules": [ "main.js", "scripts/settings.js" ],
+  "url": "https://github.com/rinnocenti/innocenti-openlock",
+  "readme": "https://github.com/rinnocenti/innocenti-openlock/blob/main/README.md",
+  "bugs": "https://github.com/rinnocenti/innocenti-openlock/issues",
+  "flags": {},
+  "version": "0.4.6",
+  "minimumCoreVersion": "0.8.0",
+  "compatibleCoreVersion": "9",
   "scripts": [],
+  "esmodules": [
+    "main.js",
+    "scripts/settings.js"
+  ],
   "styles": [
     "openlock.css"
-  ],
-  "dependencies": [
-    {
-      "name": "midi-qol",
-      "manifest": "https://gitlab.com/tposney/midi-qol/raw/master/package/module.json"
-    }
   ],
   "languages": [
     {
@@ -42,45 +42,31 @@
       "path": "lang/fr.json"
     }
   ],
-  "media": [
-    {
-      "type": "cover",
-      "link": "https://github.com/rinnocenti/innocenti-openlock/raw/main/imgs/cover.jpg"
-    },
-    {
-      "type": "video",
-      "link": "https://www.youtube.com/watch?v=0UXyk2e2zy0"
-    },
-    {
-      "type": "screenshot",
-      "link": "https://github.com/rinnocenti/innocenti-openlock/raw/main/imgs/readme01.png"
-    },
-    {
-      "type": "screenshot",
-      "link": "https://github.com/rinnocenti/innocenti-openlock/raw/main/imgs/readme04.png"
-    },
-    {
-      "type": "screenshot",
-      "link": "https://github.com/rinnocenti/innocenti-openlock/raw/main/imgs/readme02.png"
-    },
-    {
-      "type": "screenshot",
-      "link": "https://github.com/rinnocenti/innocenti-openlock/raw/main/imgs/readme03.png"
-    }
-  ],
-  "socket": true,
   "packs": [
     {
       "name": "openlock-macros",
       "label": "Open Lock Demo",
       "path": "packs/openlock.db",
       "module": "innocenti-openlock",
-      "entity": "Macro"
+      "entity": "Macro",
+      "type": "Macro",
+      "private": false
     }
   ],
-  "url": "https://github.com/rinnocenti/innocenti-openlock",
+  "system": [
+    "dnd5e"
+  ],
+  "dependencies": [
+    {
+      "name": "midi-qol",
+      "manifest": "https://gitlab.com/tposney/midi-qol/raw/master/package/module.json",
+      "type": "module"
+    }
+  ],
+  "socket": true,
   "manifest": "https://raw.githubusercontent.com/rinnocenti/innocenti-openlock/main/module.json",
   "download": "https://github.com/rinnocenti/innocenti-openlock/archive/main.zip",
-  "bugs": "https://github.com/rinnocenti/innocenti-openlock/issues",
-  "readme": "https://github.com/rinnocenti/innocenti-openlock/blob/main/README.md"
+  "protected": false,
+  "coreTranslation": false,
+  "library": false
 }

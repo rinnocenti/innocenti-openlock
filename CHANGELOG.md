@@ -1,3 +1,6 @@
+# v0.4.6
+Fix for traps
+
 # v0.4.5
 Fix dor Lock tab
 Fix for v9

@@ -48,7 +48,9 @@ export class GMActions {
         if (this.perm[`${this.data.userid}`] && this.perm[`${this.data.userid}`] >= 2) return;
         let tokenitem = await this.targetToken.actor.items.find(a => a.id === this.data.lock.have);
         if (this.data.trap.trigger && tokenitem.data.data.actionType !== '') {
-            await new MidiQOL.TrapWorkflow(this.targetToken.actor, tokenitem, [this.token], this.targetToken.center);
+            console.log("Tentando", tokenitem);
+            tokenitem.roll();
+            //new MidiQOL.TrapWorkflow(this.targetToken.actor, tokenitem, [this.token], this.targetToken.center);
             let updates = await this.targetToken.actor.items.map(itemup => {
                 if (itemup.name === tokenitem.name)
                     return { id: itemup.id, data: { actionType: "" } }
